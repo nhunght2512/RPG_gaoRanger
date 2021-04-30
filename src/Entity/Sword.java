@@ -17,8 +17,8 @@ public class Sword extends Creature{
     @Override
     public void tick() {
         getInput();
-        /*x = handler.getEntityManager().getPlayer().getX()+30;
-        y = handler.getEntityManager().getPlayer().getY()+10;*/
+        x = handler.getEntityManager().getPlayer().getX()+30;
+        y = handler.getEntityManager().getPlayer().getY()+10;
         x += xMove;
         y +=yMove;
     }

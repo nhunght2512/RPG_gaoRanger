@@ -6,6 +6,7 @@ import java.awt.*;
 
 public abstract class State {
     private static State currentState = null;
+    public State previousState;
     protected Handler handler;
 
     public static void setState(State state){
@@ -14,6 +15,10 @@ public abstract class State {
 
     public static State getState(){
         return currentState;
+    }
+
+    public State getPreviousState() {
+        return previousState;
     }
 
     public State(Handler handler){

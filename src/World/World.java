@@ -3,6 +3,7 @@ package World;
 import Entity.EntityManager;
 import Entity.Player;
 import Entity.StaticEntity.Tree;
+import Entity.Sword;
 import Handler.Handler;
 import Tiles.Tile;
 import Utils.Utils;
@@ -21,12 +22,18 @@ public class World {
     //CREATE ENTITIES
     private EntityManager entityManager;
 
-    public World(Handler handler, String path){
+    public World(Handler handler, String path, int color){
         this.handler = handler;
-        entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+        entityManager = new EntityManager(handler, new Player(handler, 100, 100, color));
 
         //CREATE ENTITIES
         entityManager.addEntity(new Tree(handler, 300, 25));
+        entityManager.addEntity(new Sword(handler, entityManager.getPlayer().getX(), entityManager.getPlayer().getY(), 30,40));
+        //if(handler.getKeyManager().aUp){
+            /*entityManager.addEntity(new Sword(handler,handler.getEntityManager().getPlayer().getX()
+                    ,handler.getEntityManager().getPlayer().getY(), 30, 40 ));*/
+            System.out.println("hihi");
+        //}
 
         loadWorld(path);
 

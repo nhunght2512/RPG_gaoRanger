@@ -4,20 +4,18 @@ import Handler.Handler;
 import Tiles.Tile;
 
 public abstract class Creature extends Entity{
+
     //CREATURES AND COLLISION
-    public static final int DEFAULT_HEALTH = 10;
     public static final float DEFAULT_SPEED = 3.0f;
     public static final int DEFAULT_CREATURE_WIDTH = 48;
     public static final int DEFAULT_CREATURE_HEIGHT = 48;
 
-    protected int health;
     protected float speed;
     protected float xMove;
     protected float yMove;
 
     public Creature(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
-        health = DEFAULT_HEALTH;
         speed = DEFAULT_SPEED;
         xMove = 0;
         yMove = 0;
@@ -30,8 +28,6 @@ public abstract class Creature extends Entity{
         if(!checkEntityCollision(0f, yMove)){
             moveY();
         }
-        /*moveX();
-        moveY();*/
     }
 
     public void moveX(){

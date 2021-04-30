@@ -5,6 +5,8 @@ import Handler.Handler;
 import java.awt.*;
 
 public abstract class Entity {
+    public static final int DEFAULT_HEALTH = 10;
+
     protected Handler handler;
 
     protected Rectangle bounds;
@@ -13,6 +15,8 @@ public abstract class Entity {
     protected float y;
     protected int width;
     protected int height;
+    protected int health;
+    protected boolean active = true;
 
     public Entity(Handler handler, float x, float y, int width, int height){
         this.x = x;
@@ -20,12 +24,23 @@ public abstract class Entity {
         this.width = width;
         this.height = height;
         this.handler = handler;
+        health = DEFAULT_HEALTH;
 
         bounds = new Rectangle(0, 0, width, height);
     }
 
     public abstract void tick();
     public abstract void render(Graphics g);
+
+    public void hurt(int amt){
+        health -= amt;
+        if(health <= 0){
+            active = false;
+            die();
+        }
+    }
+
+    public abstract void die();
 
     public boolean checkEntityCollision(float xOffset, float yOffset){
         for(Entity e : handler.getWorld().getEntityManager().getEntities()){
@@ -71,5 +86,21 @@ public abstract class Entity {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

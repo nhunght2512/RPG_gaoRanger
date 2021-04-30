@@ -7,19 +7,19 @@ import java.awt.*;
 
 public class GameState extends State{
     private World world;
-    private State MenuState;
+    private State menuState;
 
-    public GameState(Handler handler){
+    public GameState(Handler handler, int color){
         super(handler);
-        world = new World(handler, "res/World/World1.txt");
+        world = new World(handler, "res/World/World1.txt", color);
         handler.setWorld(world);
     }
 
     @Override
     public void tick() {
         world.tick();
-        if(handler.getMouseManager().isLeftPressed()){
-            State.setState(MenuState);
+        if(handler.getMouseManager().isRightPressed()){
+            State.setState(menuState = new MenuState(handler));
         }
     }
 
@@ -27,6 +27,5 @@ public class GameState extends State{
     public void render(Graphics g) {
 
         world.render(g);
-        //backGround.render(g);
     }
 }

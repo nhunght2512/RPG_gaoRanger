@@ -4,7 +4,6 @@ import Display.Display;
 import Handler.Handler;
 import Input.KeyManager;
 import Input.MouseManager;
-import State.GameState;
 import State.MenuState;
 import State.State;
 import graphics.Asset;
@@ -28,7 +27,6 @@ public class Game implements Runnable{
     //STATE
     public State gameState;
     public State menuState;
-    public State pauseState;
 
     //INPUT
     private KeyManager keyManager;
@@ -61,9 +59,8 @@ public class Game implements Runnable{
         handler = new Handler(this);
         gameCamera = new GameCamera(handler,0, 0);
 
-        gameState = new GameState(handler);
+        //gameState = new GameState(handler);
         menuState = new MenuState(handler);
-        //pauseState = new PauseState(handler);
         State.setState(menuState);
     }
 

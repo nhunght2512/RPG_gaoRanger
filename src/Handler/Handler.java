@@ -1,5 +1,6 @@
 package Handler;
 
+import Entity.EntityManager;
 import Input.KeyManager;
 import Input.MouseManager;
 import Window.Game;
@@ -40,6 +41,10 @@ public class Handler {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public EntityManager getEntityManager(){
+        return getWorld().getEntityManager();
     }
 
     public World getWorld() {

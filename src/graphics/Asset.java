@@ -42,6 +42,11 @@ public class Asset {
         buttonblu = new BufferedImage[2];
         choosePic = new BufferedImage[2];
 
+        /*swordUp = new BufferedImage[3];
+        swordDown = new BufferedImage[3];
+        swordLeft = new BufferedImage[3];
+        swordRight = new BufferedImage[3];*/
+
         blueDown[0] = sheet.crop(0 , 0, width, height);
         blueDown[1] = sheet.crop(width, 0, width, height);
         blueDown[2] = sheet.crop(width*2, 0, width, height);
@@ -89,6 +94,8 @@ public class Asset {
         choosePic[1] = pic.crop(285,0,285,300);
 
         swordUp = sword1.crop(0,0,172,230);
+        /*swordUp[1] = sword1.crop(0,0,172,320);
+        swordUp[2] = sword1.crop(0,0,172,500);*/
 
         swordDown = sword2.crop(0,0,193,257);
 

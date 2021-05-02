@@ -8,9 +8,11 @@ import java.awt.*;
 public class GameState extends State{
     private World world;
     private State menuState;
+    private int color;
 
     public GameState(Handler handler, int color){
         super(handler);
+        this.color = color;
         world = new World(handler, "res/World/World1.txt", color);
         handler.setWorld(world);
     }
@@ -25,7 +27,10 @@ public class GameState extends State{
 
     @Override
     public void render(Graphics g) {
-
         world.render(g);
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }

@@ -1,5 +1,6 @@
 package World;
 
+import Entity.Entity;
 import Entity.EntityManager;
 import Entity.Player;
 import Entity.StaticEntity.Tree;
@@ -18,6 +19,16 @@ public class World {
     private int spawnX;
     private int spawnY;
     private int[][] tiles;
+    private int size;
+
+    //ATTACK TIMER
+    private long lastAttackTimer;
+    private long timeCounter = System.currentTimeMillis();
+    private long attackCooldown = 1000;
+    private long attackTimer = attackCooldown;
+
+    //SHOOTING FLAG
+    private boolean isShoot = false;
 
     //CREATE ENTITIES
     private EntityManager entityManager;
@@ -28,21 +39,54 @@ public class World {
 
         //CREATE ENTITIES
         entityManager.addEntity(new Tree(handler, 300, 25));
-        entityManager.addEntity(new Sword(handler, entityManager.getPlayer().getX(), entityManager.getPlayer().getY(), 30,40));
-        //if(handler.getKeyManager().aUp){
-            /*entityManager.addEntity(new Sword(handler,handler.getEntityManager().getPlayer().getX()
-                    ,handler.getEntityManager().getPlayer().getY(), 30, 40 ));*/
-            System.out.println("hihi");
-        //}
 
         loadWorld(path);
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
+
     }
 
     public void tick(){
-        entityManager.tick();
+        Sword sword = new Sword(handler, entityManager.getPlayer().getX(),
+                                         entityManager.getPlayer().getY(), 30, 40);
+
+        //SHOOTING
+        if((handler.getKeyManager().aUp || handler.getKeyManager().aDown
+          || handler.getKeyManager().aLeft || handler.getKeyManager().aRight) && (!isShoot)){
+            //ADD SWORD
+            entityManager.addEntity(sword);
+            size = entityManager.getEntities().size();
+            isShoot = true;//NO MORE SWORD UNTIL ISSHOOT == FALSE
+            System.out.println("t    "+size);
+
+            //KILL COOLDOWN
+            attackTimer += System.currentTimeMillis() - lastAttackTimer;
+            lastAttackTimer = System.currentTimeMillis();
+            if(attackTimer < attackCooldown){
+                return;
+            }
+            attackTimer = 0;
+            entityManager.tick();
+        }else {
+            //TIME EXISTANCE OF SWORD
+            if(System.currentTimeMillis() - timeCounter > 1000){
+                timeCounter = System.currentTimeMillis();
+
+                //DELETE THE SWORD AFTER 1000 MILISECONDS
+                for(Entity e :entityManager.getEntities()){
+                    if(e instanceof Sword){
+                        e.setActive(false);
+                        isShoot = false;
+                        break;
+                    }
+                }
+
+                entityManager.tick();
+            }else {
+                entityManager.tick();
+            }
+        }
     }
 
     public void render(Graphics g){

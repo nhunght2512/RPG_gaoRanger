@@ -15,9 +15,16 @@ public class Player extends Creature{
     private Animation animLeft;
     private Animation animRigth;
     private BufferedImage animStay;
+    private int mp = 0;
+
+    //HP BAR
+    private BufferedImage hp;
+    private BufferedImage MP;
 
     public Player(Handler handler, float x, float y, int color) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+
+        health = 200;
 
         bounds.x = 13;
         bounds.y = 30;
@@ -54,6 +61,9 @@ public class Player extends Creature{
         move();
         handler.getGameCamera().centerOnEntity(this);
 
+        //HP BAR
+        getHpBar();
+        getMpBar();
     }
 
     public void getInput(){
@@ -77,11 +87,60 @@ public class Player extends Creature{
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
-
+        g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
+        g.drawImage(MP, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 15, 40, 8, null);
         /*g.setColor(Color.CYAN);
         g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
                 (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
                 bounds.width, bounds.height);*/
+    }
+
+    public void getHpBar(){
+        if(health >160){
+            hp = Asset.hpBar[0];
+        }else if(health>120){
+            hp = Asset.hpBar[1];
+        }else if(health>80){
+            hp = Asset.hpBar[2];
+        }else if(health >40){
+            hp = Asset.hpBar[3];
+        }else if(health >0){
+            hp = Asset.hpBar[5];
+        }else{
+            hp = Asset.hpBar[4];
+            this.setActive(false);
+        }
+    }
+
+    public void getMpBar(){
+        if(mp >8){
+            MP = Asset.mpBar[0];
+        }else if(mp>6){
+            MP = Asset.mpBar[1];
+        }else if(mp>4){
+            MP = Asset.mpBar[2];
+        }else if(mp >2){
+            MP = Asset.mpBar[3];
+        }else if(mp > 0){
+            MP = Asset.mpBar[5];
+        }else{
+            MP = Asset.mpBar[4];
+        }
+    }
+
+    //CHECK XEM CO DUNG PHAI MONSTER KHONG DE TRU MAU
+    protected boolean checkMonster(){
+        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+            if(e.equals(this)){
+                continue;
+            }
+            if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
+                if(e instanceof Monster){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -101,5 +160,13 @@ public class Player extends Creature{
         }else {
             return animStay;
         }
+    }
+
+    public int getMp() {
+        return mp;
+    }
+
+    public void setMp(int amt) {
+        this.mp = mp + amt;
     }
 }

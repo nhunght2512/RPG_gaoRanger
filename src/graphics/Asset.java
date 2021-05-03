@@ -6,9 +6,9 @@ public class Asset {
     private static final int width = 47;
     private static final int height = 47;
 
-    public static BufferedImage back, brick1, brick2, rock, dirt, grass, table, tomb, signPost, tree, swordUp, swordDown, swordLeft, swordRight;
+    public static BufferedImage back, brick1, brick2, rock, dirt, grass, table, tomb, signPost, tree, swordUp, swordDown, swordLeft, swordRight, loseState;
     public static BufferedImage[] blueUp, blueDown, blueLeft, blueRight, button, buttonyel, buttonblu,
-                                  yelUp, yelDown, yelLeft, yelRight, choosePic;
+                                  yelUp, yelDown, yelLeft, yelRight, choosePic, hpBar, mpBar;
 
     public static void init(){
         //LOAD ANH
@@ -26,6 +26,8 @@ public class Asset {
         SpriteSheet sword2 = new SpriteSheet(LoadImage.loadImage("/textures/sword_down.png"));
         SpriteSheet sword3 = new SpriteSheet(LoadImage.loadImage("/textures/sword_left.png"));
         SpriteSheet sword4 = new SpriteSheet(LoadImage.loadImage("/textures/sword_right.png"));
+        SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
+        SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/lose.png"));
 
         blueUp = new BufferedImage[3];
         blueDown = new BufferedImage[3];
@@ -41,11 +43,8 @@ public class Asset {
         buttonyel = new BufferedImage[2];
         buttonblu = new BufferedImage[2];
         choosePic = new BufferedImage[2];
-
-        /*swordUp = new BufferedImage[3];
-        swordDown = new BufferedImage[3];
-        swordLeft = new BufferedImage[3];
-        swordRight = new BufferedImage[3];*/
+        hpBar = new BufferedImage[6];
+        mpBar = new BufferedImage[6];
 
         blueDown[0] = sheet.crop(0 , 0, width, height);
         blueDown[1] = sheet.crop(width, 0, width, height);
@@ -94,14 +93,27 @@ public class Asset {
         choosePic[1] = pic.crop(285,0,285,300);
 
         swordUp = sword1.crop(0,0,172,230);
-        /*swordUp[1] = sword1.crop(0,0,172,320);
-        swordUp[2] = sword1.crop(0,0,172,500);*/
 
         swordDown = sword2.crop(0,0,193,257);
 
         swordLeft = sword3.crop(276,0,271,187);
 
         swordRight = sword4.crop(0,0,270,185);
+
+        hpBar[0] = hpmp.crop(0,0,255,40);
+        hpBar[1] = hpmp.crop(0,40,255,40);
+        hpBar[2] = hpmp.crop(0,80,255,40);
+        hpBar[3] = hpmp.crop(0,120,255,40);
+        hpBar[4] = hpmp.crop(0,160,255,40);
+        hpBar[5] = hpmp.crop(0,200,255,40);
+
+        mpBar[0] = hpmp.crop(255,0,255,40);
+        mpBar[1] = hpmp.crop(255,40,255,40);
+        mpBar[2] = hpmp.crop(255,80,255,40);
+        mpBar[3] = hpmp.crop(255,120,255,40);
+        mpBar[4] = hpmp.crop(255,160,255,40);
+        mpBar[5] = hpmp.crop(255,200,255,40);
+
 
         //CAT GACH
         back = logo.crop(0,0,800,360);
@@ -114,5 +126,6 @@ public class Asset {
         tomb = stuff.crop(88, 75, 61, 73);
         signPost = stuff.crop(153,85, 32,42);
         tree = stuff.crop(195, 0, 116, 148);
+        loseState = lose.crop(0,0,800,400);
     }
 }

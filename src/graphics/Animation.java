@@ -3,6 +3,7 @@ package graphics;
 import java.awt.image.BufferedImage;
 
 public class Animation {
+    //ANIMATION
     private int speed;
     private int index;
     private long lastTime;

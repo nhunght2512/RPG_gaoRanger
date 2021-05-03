@@ -7,7 +7,8 @@ import java.awt.*;
 
 public class GameState extends State{
     private World world;
-    private State menuState;
+    /*private State menuState;
+    private State loseState;*/
     private int color;
 
     public GameState(Handler handler, int color){
@@ -21,7 +22,11 @@ public class GameState extends State{
     public void tick() {
         world.tick();
         if(handler.getMouseManager().isRightPressed()){
-            State.setState(menuState = new MenuState(handler));
+            //State.setState(new MenuState(handler));
+            System.exit(0);
+        }
+        if(!handler.getEntityManager().getPlayer().isActive()){
+            State.setState(new LoseState(handler));
         }
     }
 

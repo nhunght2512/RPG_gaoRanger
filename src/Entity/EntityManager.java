@@ -10,6 +10,8 @@ public class EntityManager {
     private Handler handler;
     private Player player;
     private ArrayList<Entity> entities;
+
+    //RENDER ORDER
     private Comparator<Entity> renderSorter = new Comparator<Entity>() {
         @Override
         public int compare(Entity o1, Entity o2) {
@@ -31,6 +33,8 @@ public class EntityManager {
         for(int i = 0; i < entities.size(); i ++){
             Entity e = entities.get(i);
             e.tick();
+
+            //KIEM TRA XEM NHAN VAT CHET CHUA
             if(! e.isActive()){
                 entities.remove(e);
             }

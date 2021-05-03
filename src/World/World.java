@@ -5,6 +5,7 @@ import Entity.EntityManager;
 import Entity.Player;
 import Entity.StaticEntity.Tree;
 import Entity.Sword;
+import Entity.Monster;
 import Handler.Handler;
 import Tiles.Tile;
 import Utils.Utils;
@@ -39,12 +40,11 @@ public class World {
 
         //CREATE ENTITIES
         entityManager.addEntity(new Tree(handler, 300, 25));
-
+        entityManager.addEntity(new Monster(handler, 500, 300));
         loadWorld(path);
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
-
     }
 
     public void tick(){
@@ -69,11 +69,11 @@ public class World {
             attackTimer = 0;
             entityManager.tick();
         }else {
-            //TIME EXISTANCE OF SWORD
+            //TIME EXISTENCE OF SWORD
             if(System.currentTimeMillis() - timeCounter > 1000){
                 timeCounter = System.currentTimeMillis();
 
-                //DELETE THE SWORD AFTER 1000 MILISECONDS
+                //DELETE THE SWORD AFTER 1000 MILLISECONDS
                 for(Entity e :entityManager.getEntities()){
                     if(e instanceof Sword){
                         e.setActive(false);
@@ -82,10 +82,8 @@ public class World {
                     }
                 }
 
-                entityManager.tick();
-            }else {
-                entityManager.tick();
             }
+            entityManager.tick();
         }
     }
 

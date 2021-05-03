@@ -13,6 +13,7 @@ public abstract class Creature extends Entity{
     protected float speed;
     protected float xMove;
     protected float yMove;
+    
 
     public Creature(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
@@ -21,15 +22,27 @@ public abstract class Creature extends Entity{
         yMove = 0;
     }
 
+    //CHECK ENTITY COLLISION
     public void move(){
         if(!checkEntityCollision(xMove, 0f)){
             moveX();
+        }else{
+            // TRU MAU KHI NHAN VAT DUNG PHAI VAT THE
+            if(handler.getWorld().getEntityManager().getPlayer().checkMonster()){
+                handler.getEntityManager().getPlayer().hurt(1);
+            }
         }
         if(!checkEntityCollision(0f, yMove)){
             moveY();
+        }else{
+            //TRU MAU KHI NHAN VAT DUNG PHAI VAT THE
+            if(handler.getWorld().getEntityManager().getPlayer().checkMonster()){
+                handler.getEntityManager().getPlayer().hurt(1);
+            }
         }
     }
 
+    //DAM BAO NHAN VAT KHONG DI QUA DUOC TILES SOLID
     public void moveX(){
         if(xMove > 0 ){//MOVING RIGHT
             int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILE_WIDTH;
@@ -50,6 +63,7 @@ public abstract class Creature extends Entity{
         }
     }
 
+    //DAM BAO NHAN VAT KHONG DI QUA DUOC TILES SOLID
     public void moveY(){
         if(yMove < 0){//UP
             int ty = (int) (y + yMove + bounds.y) / Tile.TILE_HEIGHT;

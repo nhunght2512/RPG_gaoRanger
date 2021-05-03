@@ -32,6 +32,7 @@ public abstract class Entity {
     public abstract void tick();
     public abstract void render(Graphics g);
 
+    //PHUONG THUC TRU MAU
     public void hurt(int amt){
         health -= amt;
         if(health <= 0){
@@ -42,6 +43,7 @@ public abstract class Entity {
 
     public abstract void die();
 
+    //ENTITY COLLISION
     public boolean checkEntityCollision(float xOffset, float yOffset){
         for(Entity e : handler.getWorld().getEntityManager().getEntities()){
             if((!(e instanceof Player)) &&

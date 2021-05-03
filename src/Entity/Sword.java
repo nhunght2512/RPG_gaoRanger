@@ -10,9 +10,9 @@ public class Sword extends Entity{
 
     BufferedImage img;
 
-    //ATTACK TIMER
+    //THOI GIAN CACH NHAU GIUA MOI TRU MAU
     private long lastAttackTimer;
-    private long attackCooldown = 200;// CAN CHINH THOI GIAN QUY DINH THOI GIAN CHET
+    private long attackCooldown = 200;// CAN CHINH THOI GIAN QUY DINH THOI GIAN TRU MAU (TRU MAU NHANH HON HAY CHAM HON)
     private long attackTimer = attackCooldown;
 
     private int xMove;
@@ -39,6 +39,7 @@ public class Sword extends Entity{
 
     private void checkAttack() {
 
+        //THOI GIAN CACH NHAU GIUA MOI LAN TRU MAU
         attackTimer += System.currentTimeMillis() - lastAttackTimer;
         lastAttackTimer = System.currentTimeMillis();
         if(attackTimer < attackCooldown){
@@ -47,13 +48,15 @@ public class Sword extends Entity{
 
         attackTimer = 0;
 
+        //NEU DUNG TRUNG QUAI VAT THI TIEN HANH TRU MAU VA CONG MP
         for(Entity e : handler.getWorld().getEntityManager().getEntities()){
             System.out.println(e.health);
             if(e.equals(handler.getWorld().getEntityManager().getPlayer()) || e instanceof Sword){
                 continue;
             }
             if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
-                e.hurt(1);//GIAM SO MAU
+                e.hurt(1);//TRU MAU QUAI VAT
+                handler.getWorld().getEntityManager().getPlayer().setMp(1);//TANG MP
                 return;
             }
         }

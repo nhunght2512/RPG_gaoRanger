@@ -9,6 +9,7 @@ import Entity.Weapon.Sword1;
 import Entity.Weapon.Sword2;
 import Entity.Character.Monster;
 import Handler.Handler;
+import Tiles.Items.ItemManager;
 import Tiles.Tile;
 import Utils.Utils;
 import graphics.Asset;
@@ -37,9 +38,13 @@ public class World {
     //CREATE ENTITIES
     private EntityManager entityManager;
 
+    //CREATE ITEMS
+    private ItemManager itemManager;
+
     public World(Handler handler, String path, int color){
         this.handler = handler;
         entityManager = new EntityManager(handler, new Player(handler, 100, 100, color));
+        itemManager = new ItemManager(handler);
 
         //CREATE ENTITIES
         entityManager.addEntity(new Tree(handler, 300, 25, Asset.tree));
@@ -66,6 +71,7 @@ public class World {
     public void tick(){
         makeBullet(entityManager.getPlayer().getX(), entityManager.getPlayer().getY());
         entityManager.tick();
+        itemManager.tick();
     }
 
     private void makeBullet(float x, float y){
@@ -113,6 +119,11 @@ public class World {
                         (int) ((y * Tile.TILE_HEIGHT) - handler.getGameCamera().getyOffset()));
             }
         }
+
+        //RENDER ITEMS
+        itemManager.render(g);
+
+        //RENDER ENTITY
         entityManager.render(g);
     }
 
@@ -145,6 +156,25 @@ public class World {
         }
 
 
+    }
+
+    //GETTERS AND SETTERS
+
+
+    public Handler getHandler() {
+        return handler;
+    }
+
+    public void setHandler(Handler handler) {
+        this.handler = handler;
+    }
+
+    public ItemManager getItemManager() {
+        return itemManager;
+    }
+
+    public void setItemManager(ItemManager itemManager) {
+        this.itemManager = itemManager;
     }
 
     public int getWidth() {

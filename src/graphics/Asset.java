@@ -6,7 +6,7 @@ public class Asset {
     private static final int width = 47;
     private static final int height = 47;
 
-    public static BufferedImage back, brick1, brick2, rock, dirt, grass, table, tomb, signPost, tree, swordUp, swordDown, swordLeft, swordRight, loseState;
+    public static BufferedImage back, brick1, brick2, rock, dirt, grass, table, tomb, signPost, tree, swordUp, swordDown, swordLeft, swordRight, loseState, iceCream;
     public static BufferedImage[] blueUp, blueDown, blueLeft, blueRight, button, buttonyel, buttonblu,
                                   yelUp, yelDown, yelLeft, yelRight, choosePic, hpBar, mpBar;
 
@@ -26,6 +26,7 @@ public class Asset {
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
         SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/lose.png"));
         SpriteSheet gao = new SpriteSheet(LoadImage.loadImage("/textures/gaoRangerAll.png"));
+        SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
 
         blueUp = new BufferedImage[3];
         blueDown = new BufferedImage[3];
@@ -66,6 +67,8 @@ public class Asset {
         choosePic[0] = pic.crop(0,0,285,300);
         choosePic[1] = pic.crop(285,0,285,300);
 
+
+
         swordUp = sword1.crop(0,0,172,230);
 
         swordDown = sword2.crop(0,0,193,257);
@@ -90,6 +93,7 @@ public class Asset {
         signPost = stuff.crop(153,85, 32,42);
         tree = stuff.crop(195, 0, 116, 148);
         loseState = lose.crop(0,0,800,400);
+        iceCream = item.crop(0,0,186,171);
     }
 
     public static void cut(int width, int height, int colx, int coly, int x, int y, BufferedImage[] bi, SpriteSheet spr){

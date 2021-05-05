@@ -2,6 +2,7 @@ package Entity.Character;
 
 import Entity.Character.Creature;
 import Handler.Handler;
+import Tiles.Items.Item;
 import Tiles.Tile;
 import graphics.Animation;
 import graphics.Asset;
@@ -150,7 +151,8 @@ public class Monster extends Creature {
 
     @Override
     public void die() {
-
+        //KHI QUAI VAT CHET THI HIEN VAT PHAM
+        handler.getWorld().getItemManager().addItem(Item.iceCreamm.createNewItem((int) x, (int) y));
     }
 
     //ANIMATION

@@ -1,5 +1,6 @@
-package Entity;
+package Entity.Character;
 
+import Entity.Character.Creature;
 import Handler.Handler;
 import Tiles.Tile;
 import graphics.Animation;
@@ -9,7 +10,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-public class Monster extends Creature{
+public class Monster extends Creature {
 
     //CREATE ANIMATION
     private Animation animDown;
@@ -36,10 +37,10 @@ public class Monster extends Creature{
         animRigth = new Animation(500, Asset.blueRight);
         animStay = Asset.blueDown[0];
 
-        bounds.x = 13;
-        bounds.y = 15;
-        bounds.width = 21;
-        bounds.height = 25;
+        bounds.x = 8;
+        bounds.y = 10;
+        bounds.width = 23;
+        bounds.height = 30;
     }
 
     @Override
@@ -97,11 +98,11 @@ public class Monster extends Creature{
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
-        g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 20, 40, 8, null);
-        /*g.setColor(Color.cyan);
+        g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
+        g.setColor(Color.cyan);
         g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
                 (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                bounds.width, bounds.height);*/
+                bounds.width, bounds.height);
     }
 
     //RANDOM HUONG DI CUA MONSTER
@@ -115,16 +116,16 @@ public class Monster extends Creature{
         yMove = 0;
         float check = random.nextFloat();
         if(check < 0.25){
-            yMove = -1;
+            yMove = -1;//-speed;
         }
         else if(check >= 0.25 && check < 0.5){
-            yMove = 1;
+            yMove = 1;//speed;
         }
         else if(check >= 0.5 && check < 0.75){
-            xMove = -1;
+            xMove = -1;//-speed;
         }
         else{
-            xMove = 1;
+            xMove = 1;//speed;
         }
         moveTimer = 0;
     }

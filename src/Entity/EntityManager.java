@@ -1,10 +1,14 @@
 package Entity;
 
+import Entity.Character.Player;
+import Entity.Weapon.Sword1;
+import Entity.Weapon.Sword2;
 import Handler.Handler;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class EntityManager {
     private Handler handler;
@@ -30,22 +34,34 @@ public class EntityManager {
     }
 
     public void tick(){
-        for(int i = 0; i < entities.size(); i ++){
-            Entity e = entities.get(i);
+        Iterator<Entity> iter = entities.iterator();
+        while(iter.hasNext()){
+            Entity e = iter.next();
             e.tick();
 
             //KIEM TRA XEM NHAN VAT CHET CHUA
             if(! e.isActive()){
-                entities.remove(e);
+                iter.remove();
+            }
+
+            //NEU LA KIEM THI XOA SAU 1S
+            if(e instanceof Sword1 && !handler.getWorld().isShoot()){
+                e.setActive(false);
+                break;
+            }else if(e instanceof Sword2 && !handler.getWorld().isShoot()){
+                e.setActive(false);
+                handler.getWorld().getEntityManager().getPlayer().setMp(-1);
+                break;
             }
         }
+        entities.sort(renderSorter);
     }
 
     public void render(Graphics g){
         for(Entity e : entities){
             e.render(g);
         }
-        entities.sort(renderSorter);
+
     }
 
     public void addEntity(Entity e){

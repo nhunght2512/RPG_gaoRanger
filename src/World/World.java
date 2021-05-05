@@ -2,13 +2,16 @@ package World;
 
 import Entity.Entity;
 import Entity.EntityManager;
-import Entity.Player;
+import Entity.Character.Player;
 import Entity.StaticEntity.Tree;
-import Entity.Sword;
-import Entity.Monster;
+import Entity.Weapon.Sword;
+import Entity.Weapon.Sword1;
+import Entity.Weapon.Sword2;
+import Entity.Character.Monster;
 import Handler.Handler;
 import Tiles.Tile;
 import Utils.Utils;
+import graphics.Asset;
 
 import java.awt.*;
 
@@ -39,8 +42,21 @@ public class World {
         entityManager = new EntityManager(handler, new Player(handler, 100, 100, color));
 
         //CREATE ENTITIES
-        entityManager.addEntity(new Tree(handler, 300, 25));
+        entityManager.addEntity(new Tree(handler, 300, 25, Asset.tree));
         entityManager.addEntity(new Monster(handler, 500, 300));
+        entityManager.addEntity(new Monster(handler, 300, 400));
+        entityManager.addEntity(new Monster(handler, 800, 700));
+        entityManager.addEntity(new Monster(handler, 720, 700));
+        entityManager.addEntity(new Monster(handler, 740, 700));
+        entityManager.addEntity(new Monster(handler, 760, 700));
+        entityManager.addEntity(new Monster(handler, 780, 700));
+        entityManager.addEntity(new Monster(handler, 700, 700));
+        entityManager.addEntity(new Monster(handler, 200, 700));
+        entityManager.addEntity(new Monster(handler, 300, 700));
+        entityManager.addEntity(new Monster(handler, 400, 700));
+        entityManager.addEntity(new Monster(handler, 500, 700));
+        entityManager.addEntity(new Monster(handler, 600, 700));
+
         loadWorld(path);
 
         entityManager.getPlayer().setX(spawnX);
@@ -48,12 +64,20 @@ public class World {
     }
 
     public void tick(){
-        Sword sword = new Sword(handler, entityManager.getPlayer().getX(),
-                                         entityManager.getPlayer().getY(), 30, 40);
+        makeBullet(entityManager.getPlayer().getX(), entityManager.getPlayer().getY());
+        entityManager.tick();
+    }
 
+    private void makeBullet(float x, float y){
+        Sword sword;
+        if(entityManager.getPlayer().getMp() > 0 && handler.getKeyManager().space){
+            sword = new Sword2(handler, x, y, 30, 40);
+        }else{
+            sword = new Sword1(handler, x, y, 30, 40);
+        }
         //SHOOTING
         if((handler.getKeyManager().aUp || handler.getKeyManager().aDown
-          || handler.getKeyManager().aLeft || handler.getKeyManager().aRight) && (!isShoot)){
+                || handler.getKeyManager().aLeft || handler.getKeyManager().aRight) && (!isShoot)){
             //ADD SWORD
             entityManager.addEntity(sword);
             size = entityManager.getEntities().size();
@@ -67,23 +91,12 @@ public class World {
                 return;
             }
             attackTimer = 0;
-            entityManager.tick();
         }else {
             //TIME EXISTENCE OF SWORD
             if(System.currentTimeMillis() - timeCounter > 1000){
                 timeCounter = System.currentTimeMillis();
-
-                //DELETE THE SWORD AFTER 1000 MILLISECONDS
-                for(Entity e :entityManager.getEntities()){
-                    if(e instanceof Sword){
-                        e.setActive(false);
-                        isShoot = false;
-                        break;
-                    }
-                }
-
+                isShoot = false;
             }
-            entityManager.tick();
         }
     }
 
@@ -148,5 +161,13 @@ public class World {
 
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    public boolean isShoot() {
+        return isShoot;
+    }
+
+    public void setShoot(boolean shoot) {
+        isShoot = shoot;
     }
 }

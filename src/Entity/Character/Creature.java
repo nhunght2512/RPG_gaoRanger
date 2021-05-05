@@ -1,9 +1,10 @@
-package Entity;
+package Entity.Character;
 
+import Entity.Entity;
 import Handler.Handler;
 import Tiles.Tile;
 
-public abstract class Creature extends Entity{
+public abstract class Creature extends Entity {
 
     //CREATURES AND COLLISION
     public static final float DEFAULT_SPEED = 3.0f;
@@ -120,4 +121,6 @@ public abstract class Creature extends Entity{
     public void setSpeed(float speed) {
         this.speed = speed;
     }
+
+
 }

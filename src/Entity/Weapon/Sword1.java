@@ -1,13 +1,13 @@
-package Entity;
+package Entity.Weapon;
 
+import Entity.Weapon.Sword;
 import Handler.Handler;
 import graphics.Asset;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Sword extends Entity{
-
+public class Sword1 extends Sword {
     BufferedImage img;
 
     //THOI GIAN CACH NHAU GIUA MOI TRU MAU
@@ -19,8 +19,9 @@ public class Sword extends Entity{
     private int yMove;
     private int speed = 2;
 
-    public Sword(Handler handler, float x, float y, int width, int height) {
+    public Sword1(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
+
         bounds.x = 0;
         bounds.y = 0;
         bounds.width = 20;
@@ -33,34 +34,10 @@ public class Sword extends Entity{
         x += xMove;
         y += yMove;
 
-        //ATTACK
-        checkAttack();
+        //TRU MAU CUA QUAI KHI CHAM VAO SWORD
+        checkAttack(1);
     }
 
-    private void checkAttack() {
-
-        //THOI GIAN CACH NHAU GIUA MOI LAN TRU MAU
-        attackTimer += System.currentTimeMillis() - lastAttackTimer;
-        lastAttackTimer = System.currentTimeMillis();
-        if(attackTimer < attackCooldown){
-            return;
-        }
-
-        attackTimer = 0;
-
-        //NEU DUNG TRUNG QUAI VAT THI TIEN HANH TRU MAU VA CONG MP
-        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-            System.out.println(e.health);
-            if(e.equals(handler.getWorld().getEntityManager().getPlayer()) || e instanceof Sword){
-                continue;
-            }
-            if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
-                e.hurt(1);//TRU MAU QUAI VAT
-                handler.getWorld().getEntityManager().getPlayer().setMp(1);//TANG MP
-                return;
-            }
-        }
-    }
 
     @Override
     public void render(Graphics g) {
@@ -89,10 +66,5 @@ public class Sword extends Entity{
             yMove = 0;
             img = Asset.swordRight;
         }
-    }
-
-    @Override
-    public void die() {
-
     }
 }

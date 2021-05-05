@@ -1,5 +1,7 @@
-package Entity;
+package Entity.Character;
 
+import Entity.Character.Creature;
+import Entity.Entity;
 import Handler.Handler;
 import graphics.Animation;
 import graphics.Asset;
@@ -7,7 +9,7 @@ import graphics.Asset;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Player extends Creature{
+public class Player extends Creature {
 
     //CREATE ANIMATION
     private Animation animDown;
@@ -26,10 +28,10 @@ public class Player extends Creature{
 
         health = 200;
 
-        bounds.x = 13;
-        bounds.y = 30;
+        bounds.x = 8;
+        bounds.y = 25;
         bounds.width = 21;
-        bounds.height = 15;
+        bounds.height = 20;
 
         //ANIMATION
         if(color == 1){
@@ -89,10 +91,10 @@ public class Player extends Creature{
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
         g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
         g.drawImage(MP, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 15, 40, 8, null);
-        /*g.setColor(Color.CYAN);
+        g.setColor(Color.CYAN);
         g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
                 (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                bounds.width, bounds.height);*/
+                bounds.width, bounds.height);
     }
 
     public void getHpBar(){

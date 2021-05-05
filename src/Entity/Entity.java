@@ -1,5 +1,6 @@
 package Entity;
 
+import Entity.Character.Player;
 import Handler.Handler;
 
 import java.awt.*;
@@ -15,7 +16,7 @@ public abstract class Entity {
     protected float y;
     protected int width;
     protected int height;
-    protected int health;
+    public int health;
     protected boolean active = true;
 
     public Entity(Handler handler, float x, float y, int width, int height){
@@ -54,6 +55,7 @@ public abstract class Entity {
         return false;
     }
 
+    //TRA VE HINH VUONG DUNG CHO THUAT TOAN VA CHAM
     public Rectangle getCollisionBounds(float xOffset, float yOffset){
         return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width, bounds.height);
     }

@@ -12,12 +12,9 @@ public class Asset {
 
     public static void init(){
         //LOAD ANH
-        SpriteSheet sheet = new SpriteSheet(LoadImage.loadImage("/textures/gao_xanh.png"));
-        SpriteSheet sheet1 = new SpriteSheet(LoadImage.loadImage("/textures/gaoRanger_Yellow.png"));
         SpriteSheet yellow = new SpriteSheet(LoadImage.loadImage("/textures/Yellow.png"));
         SpriteSheet blue = new SpriteSheet(LoadImage.loadImage("/textures/blue.png"));
         SpriteSheet pic = new SpriteSheet(LoadImage.loadImage("/textures/pic.png"));
-        SpriteSheet backGround = new SpriteSheet(LoadImage.loadImage("/BackGround/back.png"));
         SpriteSheet brick = new SpriteSheet(LoadImage.loadImage("/BackGround/brick1.jpg"));
         SpriteSheet stuff = new SpriteSheet(LoadImage.loadImage("/textures/tree.png"));
         SpriteSheet buttonStart = new SpriteSheet(LoadImage.loadImage("/textures/button2.png"));
@@ -28,6 +25,7 @@ public class Asset {
         SpriteSheet sword4 = new SpriteSheet(LoadImage.loadImage("/textures/sword_right.png"));
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
         SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/lose.png"));
+        SpriteSheet gao = new SpriteSheet(LoadImage.loadImage("/textures/gaoRangerAll.png"));
 
         blueUp = new BufferedImage[3];
         blueDown = new BufferedImage[3];
@@ -46,39 +44,15 @@ public class Asset {
         hpBar = new BufferedImage[6];
         mpBar = new BufferedImage[6];
 
-        blueDown[0] = sheet.crop(0 , 0, width, height);
-        blueDown[1] = sheet.crop(width, 0, width, height);
-        blueDown[2] = sheet.crop(width*2, 0, width, height);
+        cut(48,48,6,0,3,1,blueDown,gao);
+        cut(48,48,6,1,3,1,blueLeft,gao);
+        cut(48,48,6,2,3,1,blueRight,gao);
+        cut(48,48,6,3,3,1,blueUp,gao);
 
-        blueLeft[0] = sheet.crop(width*2, height, width, height);
-        blueLeft[1] = sheet.crop(0, height, width, height);
-        blueLeft[2] = sheet.crop(width, height, width, height);
-
-
-        blueRight[0] = sheet.crop(0, height*2 + 2, width, height);
-        blueRight[1] = sheet.crop(width, height*2 + 2, width, height);
-        blueRight[2] = sheet.crop(width*2, height*2 + 2, width, height);
-
-        blueUp[0] = sheet.crop(0, height*3 + 3, width,height);
-        blueUp[1] = sheet.crop(width, height*3 + 3, width,height);
-        blueUp[2] = sheet.crop(width*2, height*3 +3, width,height);
-
-        yelDown[0] = sheet1.crop(0 , 0, width, height);
-        yelDown[1] = sheet1.crop(width, 0, width, height);
-        yelDown[2] = sheet1.crop(width*2, 0, width, height);
-
-        yelLeft[0] = sheet1.crop(width*2, height, width, height);
-        yelLeft[1] = sheet1.crop(0, height, width, height);
-        yelLeft[2] = sheet1.crop(width, height, width, height);
-
-
-        yelRight[0] = sheet1.crop(0, height*2 + 2, width, height);
-        yelRight[1] = sheet1.crop(width, height*2 + 2, width, height);
-        yelRight[2] = sheet1.crop(width*2, height*2 + 2, width, height);
-
-        yelUp[0] = sheet1.crop(0, height*3 + 3, width,height);
-        yelUp[1] = sheet1.crop(width, height*3 + 3, width,height);
-        yelUp[2] = sheet1.crop(width*2, height*3 +3, width,height);
+        cut(48,48,9,0,3,1,yelDown,gao);
+        cut(48,48,9,1,3,1,yelLeft,gao);
+        cut(48,48,9,2,3,1,yelRight,gao);
+        cut(48,48,9,3,3,1,yelUp,gao);
 
         button[0] = buttonStart.crop(0,0, 225, 125);
         button[1] = buttonStart.crop(225, 0, 225,125);
@@ -100,19 +74,8 @@ public class Asset {
 
         swordRight = sword4.crop(0,0,270,185);
 
-        hpBar[0] = hpmp.crop(0,0,255,40);
-        hpBar[1] = hpmp.crop(0,40,255,40);
-        hpBar[2] = hpmp.crop(0,80,255,40);
-        hpBar[3] = hpmp.crop(0,120,255,40);
-        hpBar[4] = hpmp.crop(0,160,255,40);
-        hpBar[5] = hpmp.crop(0,200,255,40);
-
-        mpBar[0] = hpmp.crop(255,0,255,40);
-        mpBar[1] = hpmp.crop(255,40,255,40);
-        mpBar[2] = hpmp.crop(255,80,255,40);
-        mpBar[3] = hpmp.crop(255,120,255,40);
-        mpBar[4] = hpmp.crop(255,160,255,40);
-        mpBar[5] = hpmp.crop(255,200,255,40);
+        cut(255,40,0,0,1,6,hpBar,hpmp);
+        cut(255,40,1,0,1,6,mpBar,hpmp);
 
 
         //CAT GACH
@@ -127,5 +90,15 @@ public class Asset {
         signPost = stuff.crop(153,85, 32,42);
         tree = stuff.crop(195, 0, 116, 148);
         loseState = lose.crop(0,0,800,400);
+    }
+
+    public static void cut(int width, int height, int colx, int coly, int x, int y, BufferedImage[] bi, SpriteSheet spr){
+        int count = 0;
+        for(int i = colx; i < colx + x; i++){
+            for(int j = coly; j < coly + y; j++){
+                bi[count] = spr.crop(i*width, j*height, width, height);
+                count++;
+            }
+        }
     }
 }

@@ -8,12 +8,12 @@ import graphics.Asset;
 
 import java.awt.*;
 
-public class ChooseState extends State{
+public class LevelState extends State{
     public UIManager uiManager;
-    public static int color;
 
-    public ChooseState(Handler handler) {
+    public LevelState(Handler handler) {
         super(handler);
+
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
 
@@ -21,7 +21,6 @@ public class ChooseState extends State{
         uiManager.addObject(new UIImageButton(150,400, 100, 100, Asset.buttonblu, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
-                color = 1;
                 State.setState(new MenuState(handler));
             }
         }));
@@ -29,14 +28,9 @@ public class ChooseState extends State{
         uiManager.addObject(new UIImageButton(650,400, 90, 100, Asset.buttonyel, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
-                color = 2;
                 State.setState(new MenuState(handler));
             }
         }));
-    }
-
-    public int getColor() {
-        return color;
     }
 
     @Override

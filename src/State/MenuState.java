@@ -26,7 +26,16 @@ public class MenuState extends State{
         uiManager.addObject(new UIImageButton(250,20, 300, 150, Asset.button, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
-                State.setState(new GameState(handler, ChooseState.color));/*handler.getGame().gameState);*/
+                State.setState(new GameState(handler, ChooseState.color));
+            }
+        }));
+
+        //LEVEL BUTTON
+        uiManager.addObject(new UIImageButton(650,200, 90, 100, Asset.choosePic, new ClickListener(){
+            public void onClick(){
+                handler.getMouseManager().setUiManager(null);
+                LevelState levelState = new LevelState(handler);
+                State.setState(levelState);
             }
         }));
 
@@ -48,7 +57,5 @@ public class MenuState extends State{
     @Override
     public void render(Graphics g) {
         uiManager.render(g);
-        /*g.setColor(Color.CYAN);
-        g.fillRect(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 10, 10);*/
     }
 }

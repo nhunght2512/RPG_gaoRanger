@@ -14,11 +14,14 @@ public abstract class Creature extends Entity {
     protected float speed;
     protected float xMove;
     protected float yMove;
-    
 
     public Creature(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
-        speed = LevelState.speed;
+        if(LevelState.speed > 0 ){
+            speed = LevelState.speed;
+        }else{
+            speed = 1;
+        }
         xMove = 0;
         yMove = 0;
     }

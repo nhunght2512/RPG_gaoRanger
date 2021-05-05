@@ -18,6 +18,7 @@ public class Monster extends Creature {
     private Animation animLeft;
     private Animation animRigth;
     private BufferedImage animStay;
+
     private BufferedImage hp;
 
     //RANDOM HUONG DI CUA NHAN VAT
@@ -116,16 +117,16 @@ public class Monster extends Creature {
         yMove = 0;
         float check = random.nextFloat();
         if(check < 0.25){
-            yMove = -1;//-speed;
+            yMove = -speed;
         }
         else if(check >= 0.25 && check < 0.5){
-            yMove = 1;//speed;
+            yMove = speed;
         }
         else if(check >= 0.5 && check < 0.75){
-            xMove = -1;//-speed;
+            xMove = -speed;
         }
         else{
-            xMove = 1;//speed;
+            xMove = speed;
         }
         moveTimer = 0;
     }

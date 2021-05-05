@@ -2,12 +2,12 @@ package Entity.Character;
 
 import Entity.Entity;
 import Handler.Handler;
+import State.LevelState;
 import Tiles.Tile;
 
 public abstract class Creature extends Entity {
 
     //CREATURES AND COLLISION
-    public static final float DEFAULT_SPEED = 3.0f;
     public static final int DEFAULT_CREATURE_WIDTH = 48;
     public static final int DEFAULT_CREATURE_HEIGHT = 48;
 
@@ -18,7 +18,7 @@ public abstract class Creature extends Entity {
 
     public Creature(Handler handler, float x, float y, int width, int height) {
         super(handler, x, y, width, height);
-        speed = DEFAULT_SPEED;
+        speed = LevelState.speed;
         xMove = 0;
         yMove = 0;
     }
@@ -121,6 +121,4 @@ public abstract class Creature extends Entity {
     public void setSpeed(float speed) {
         this.speed = speed;
     }
-
-
 }

@@ -73,16 +73,16 @@ public class Player extends Creature {
         yMove = 0;
 
         if(handler.getKeyManager().up){
-            yMove = -speed;
+            yMove = -3;
         }
         if(handler.getKeyManager().down){
-            yMove = speed;
+            yMove = 3;
         }
         if(handler.getKeyManager().left){
-            xMove = -speed;
+            xMove = -3;
         }
         if(handler.getKeyManager().right){
-            xMove = speed;
+            xMove = 3;
         }
     }
 

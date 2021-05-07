@@ -23,7 +23,7 @@ public class Asset {
 
     public static void init(){
         //LOAD ANH
-        SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/logo-gaoranger.png"));
+        SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/Logo-gaoranger.png"));
         SpriteSheet sword1 = new SpriteSheet(LoadImage.loadImage("/textures/sword_up.png"));
         SpriteSheet sword2 = new SpriteSheet(LoadImage.loadImage("/textures/sword_down.png"));
         SpriteSheet sword3 = new SpriteSheet(LoadImage.loadImage("/textures/sword_left.png"));

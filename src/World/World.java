@@ -90,7 +90,7 @@ public class World {
         entityManager.addEntity(new ObjectRPG(handler, 1664, 288, Asset.rock3, 32, 64, 0, 0, 32, 64));
 
         entityManager.addEntity(new ObjectRPG(handler, 96, 928, Asset.tree1, 96, 128, 25, 96, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 288, 928, Asset.tree1, 96, 128, 25, 96, 32, 32));
+        entityManager.addEntity(new ObjectRPG(handler, 320, 928, Asset.tree1, 96, 128, 25, 96, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 544, 928, Asset.tree1, 96, 128, 25, 96, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 768, 928, Asset.tree1, 96, 128, 25, 96, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 992, 928, Asset.tree1, 96, 128, 25, 96, 32, 32));

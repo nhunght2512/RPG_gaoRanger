@@ -5,6 +5,7 @@ import Input.KeyManager;
 import Input.MouseManager;
 import Window.Game;
 import World.World;
+import audio.AudioPlayer;
 import graphics.GameCamera;
 
 public class Handler {
@@ -25,6 +26,10 @@ public class Handler {
 
     public GameCamera getGameCamera(){
         return game.getGameCamera();
+    }
+
+    public AudioPlayer getAudioPlayer(){
+        return game.getAudioPlayer();
     }
 
     public int getWidth(){

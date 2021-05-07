@@ -6,6 +6,7 @@ import Input.KeyManager;
 import Input.MouseManager;
 import State.MenuState;
 import State.State;
+import audio.AudioPlayer;
 import graphics.Asset;
 import graphics.GameCamera;
 
@@ -35,6 +36,9 @@ public class Game implements Runnable{
     //CAMERA
     private GameCamera gameCamera;
 
+    //SOUND
+    private AudioPlayer audioPlayer;
+
     //HANDLER
     private Handler handler;
 
@@ -58,6 +62,9 @@ public class Game implements Runnable{
 
         handler = new Handler(this);
         gameCamera = new GameCamera(handler,0, 0);
+
+        audioPlayer = new AudioPlayer(handler);
+        handler.getAudioPlayer().playMusic("GaoMusic.wav");
 
         //gameState = new GameState(handler);
         menuState = new MenuState(handler);
@@ -135,6 +142,10 @@ public class Game implements Runnable{
 
     public GameCamera getGameCamera(){
         return gameCamera;
+    }
+
+    public AudioPlayer getAudioPlayer(){
+        return audioPlayer;
     }
 
     public synchronized void start(){

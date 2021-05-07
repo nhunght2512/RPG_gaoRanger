@@ -17,19 +17,47 @@ public class ChooseState extends State{
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
 
-        //BLUE BUTTON
-        uiManager.addObject(new UIImageButton(150,400, 100, 100, Asset.buttonblu, new ClickListener(){
+        // RED BUTTON
+        uiManager.addObject(new UIImageButton(0,0, 160, 500, Asset.buttonred, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 1;
                 State.setState(new MenuState(handler));
             }
         }));
-        //YELLOW BUTTON
-        uiManager.addObject(new UIImageButton(650,400, 90, 100, Asset.buttonyel, new ClickListener(){
+
+        //BLUE BUTTON
+        uiManager.addObject(new UIImageButton(160,0, 160, 500, Asset.buttonblu, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 2;
+                State.setState(new MenuState(handler));
+            }
+        }));
+
+        // BLACK BUTTON
+        uiManager.addObject(new UIImageButton(320,0, 160, 500, Asset.buttonbla, new ClickListener(){
+            public void onClick(){
+                handler.getMouseManager().setUiManager(null);
+                color = 3;
+                State.setState(new MenuState(handler));
+            }
+        }));
+
+        //YELLOW BUTTON
+        uiManager.addObject(new UIImageButton(480,0, 160, 500, Asset.buttonyel, new ClickListener(){
+            public void onClick(){
+                handler.getMouseManager().setUiManager(null);
+                color = 4;
+                State.setState(new MenuState(handler));
+            }
+        }));
+
+        //WHITE BUTTON
+        uiManager.addObject(new UIImageButton(640,0, 160, 500, Asset.buttonwhi, new ClickListener(){
+            public void onClick(){
+                handler.getMouseManager().setUiManager(null);
+                color = 5;
                 State.setState(new MenuState(handler));
             }
         }));

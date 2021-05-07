@@ -23,7 +23,7 @@ public class MenuState extends State{
         uiManager.addObject(new UIBackGround(0,0, 800, 360, Asset.back));
 
         //START BUTTON
-        uiManager.addObject(new UIImageButton(250,20, 300, 150, Asset.button, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,100, 200, 75, Asset.buttonStart, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 State.setState(new GameState(handler, ChooseState.color));
@@ -31,7 +31,7 @@ public class MenuState extends State{
         }));
 
         //LEVEL BUTTON
-        uiManager.addObject(new UIImageButton(650,200, 90, 100, Asset.choosePic, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,200, 200, 75, Asset.buttonCharacter, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 LevelState levelState = new LevelState(handler);
@@ -40,7 +40,7 @@ public class MenuState extends State{
         }));
 
         //CHOOSE BUTTON
-        uiManager.addObject(new UIImageButton(650,400, 90, 100, Asset.choosePic, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,300, 200, 75, Asset.buttonCharacter, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 chooseState = new ChooseState(handler);

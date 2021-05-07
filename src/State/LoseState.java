@@ -19,14 +19,14 @@ public class LoseState extends State{
         handler.getMouseManager().setUiManager(uiManager);
         uiManager.addObject(new UIBackGround(0,0, 800, 360, Asset.loseState));
 
-        uiManager.addObject(new UIImageButton(250,20, 300, 150, Asset.button, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,100, 200, 75, Asset.buttonStart, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 State.setState(new MenuState(handler));
             }
         }));
 
-        uiManager.addObject(new UIImageButton(250,200, 300, 150, Asset.choosePic, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,200, 200, 75, Asset.buttonCharacter, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 System.exit(0);

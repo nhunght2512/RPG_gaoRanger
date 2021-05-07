@@ -2,11 +2,8 @@ package Tiles;
 
 import graphics.Asset;
 
-public class Rock extends Tile{
-
-    public Rock(int id) {
-        super(Asset.rock, id);
-    }
+public class Grass1 extends Tile {
+    public Grass1(int id){ super(Asset.grass1, id);}
 
     @Override
     public boolean isSolid() {

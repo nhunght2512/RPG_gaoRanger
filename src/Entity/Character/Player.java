@@ -28,7 +28,7 @@ public class Player extends Creature {
 
         health = 200;
 
-        bounds.x = 8;
+        bounds.x = 20;
         bounds.y = 25;
         bounds.width = 21;
         bounds.height = 20;
@@ -36,17 +36,35 @@ public class Player extends Creature {
         //ANIMATION
         if(color == 1){
             System.out.println(color);
+            animDown = new Animation(500, Asset.redDown);
+            animUp = new Animation(500, Asset.redUp);
+            animLeft = new Animation(500, Asset.redLeft);
+            animRigth = new Animation(500, Asset.redRight);
+            animStay = Asset.redDown[0];
+        }else if (color == 2){
             animDown = new Animation(500, Asset.blueDown);
             animUp = new Animation(500, Asset.blueUp);
             animLeft = new Animation(500, Asset.blueLeft);
             animRigth = new Animation(500, Asset.blueRight);
             animStay = Asset.blueDown[0];
-        }else {
+        }else if (color == 3){
+            animDown = new Animation(500, Asset.blackDown);
+            animUp = new Animation(500, Asset.blackUp);
+            animLeft = new Animation(500, Asset.blackLeft);
+            animRigth = new Animation(500, Asset.blackRight);
+            animStay = Asset.blackDown[0];
+        }else if (color == 4){
             animDown = new Animation(500, Asset.yelDown);
             animUp = new Animation(500, Asset.yelUp);
             animLeft = new Animation(500, Asset.yelLeft);
             animRigth = new Animation(500, Asset.yelRight);
             animStay = Asset.yelDown[0];
+        }else {
+            animDown = new Animation(500, Asset.whiteDown);
+            animUp = new Animation(500, Asset.whiteUp);
+            animLeft = new Animation(500, Asset.whiteLeft);
+            animRigth = new Animation(500, Asset.whiteRight);
+            animStay = Asset.whiteDown[0];
         }
     }
 
@@ -91,10 +109,10 @@ public class Player extends Creature {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
         g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
         g.drawImage(MP, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 15, 40, 8, null);
-        g.setColor(Color.CYAN);
-        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                bounds.width, bounds.height);
+//        g.setColor(Color.CYAN);
+//        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+//                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+//                bounds.width, bounds.height);
     }
 
     public void getHpBar(){

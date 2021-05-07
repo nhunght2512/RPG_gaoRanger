@@ -30,19 +30,9 @@ public abstract class Creature extends Entity {
     public void move(){
         if(!checkEntityCollision(xMove, 0f)){
             moveX();
-        }else{
-            // TRU MAU KHI NHAN VAT DUNG PHAI VAT THE
-            if(handler.getWorld().getEntityManager().getPlayer().checkMonster()){
-                handler.getEntityManager().getPlayer().hurt(1);
-            }
         }
         if(!checkEntityCollision(0f, yMove)){
             moveY();
-        }else{
-            //TRU MAU KHI NHAN VAT DUNG PHAI VAT THE
-            if(handler.getWorld().getEntityManager().getPlayer().checkMonster()){
-                handler.getEntityManager().getPlayer().hurt(1);
-            }
         }
     }
 

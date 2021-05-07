@@ -8,8 +8,4 @@ public class Brick2 extends Tile{
         super(Asset.brick2, id);
     }
 
-    @Override
-    public boolean isSolid() {
-        return true;
-    }
 }

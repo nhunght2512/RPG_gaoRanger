@@ -1,6 +1,6 @@
 package Entity.Character;
 
-import Entity.Character.Creature;
+import Entity.Entity;
 import Handler.Handler;
 import Tiles.Items.Item;
 import Tiles.Tile;
@@ -39,7 +39,7 @@ public class Monster extends Creature {
         animRigth = new Animation(500, Asset.blueRight);
         animStay = Asset.blueDown[0];
 
-        bounds.x = 8;
+        bounds.x = 20;
         bounds.y = 10;
         bounds.width = 23;
         bounds.height = 30;
@@ -55,44 +55,21 @@ public class Monster extends Creature {
 
         //MOVE
         getInput();
-        moveMonster();
+        move();
+        checkPlayer();
         getHpBar();
     }
 
-    //MOVING MONSTER
-    private void moveMonster(){
-        if(xMove > 0 ){//MOVING RIGHT
-            int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILE_WIDTH;
-            if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT)
-                    && !collisionWithTile(tx, (int) (y + bounds.y +bounds.height) / Tile.TILE_HEIGHT)){
-                x += xMove;
-            }else {
-                x = tx * Tile.TILE_WIDTH - bounds.x - bounds.width -1;
+    //CHECK XEM CO DUNG PHAI PLAYER KHONG DE TRU MAU
+    protected void checkPlayer(){
+        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+            if(e.equals(this)){
+                continue;
             }
-        }else if(xMove < 0 ){//MOVING LEFT
-            int tx = (int) (x + xMove + bounds.x) / Tile.TILE_WIDTH;
-            if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT)
-                    && !collisionWithTile(tx, (int) (y + bounds.y +bounds.height) / Tile.TILE_HEIGHT)){
-                x += xMove;
-            }else {
-                x = tx * Tile.TILE_WIDTH + Tile.TILE_WIDTH - bounds.x;
-            }
-        }
-        if(yMove < 0){//UP
-            int ty = (int) (y + yMove + bounds.y) / Tile.TILE_HEIGHT;
-            if(!collisionWithTile((int) (x + bounds.x) / Tile.TILE_WIDTH, ty)
-                    && !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILE_WIDTH, ty)){
-                y += yMove;
-            }else {
-                y = ty * Tile.TILE_HEIGHT + Tile.TILE_HEIGHT - bounds.y;
-            }
-        }else if(yMove > 0){//DOWN
-            int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILE_HEIGHT;
-            if(!collisionWithTile((int) (x + bounds.x) / Tile.TILE_WIDTH, ty)
-                    && !collisionWithTile((int) (x + bounds.x + bounds.width) / Tile.TILE_WIDTH, ty)){
-                y += yMove;
-            }else{
-                y = ty * Tile.TILE_HEIGHT - bounds.y - bounds.height -1;
+            if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
+                if(e instanceof Player){
+                    handler.getWorld().getEntityManager().getPlayer().hurt(1);
+                }
             }
         }
     }
@@ -101,10 +78,10 @@ public class Monster extends Creature {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
         g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
-        g.setColor(Color.cyan);
-        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                bounds.width, bounds.height);
+//        g.setColor(Color.cyan);
+//        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+//                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+//                bounds.width, bounds.height);
     }
 
     //RANDOM HUONG DI CUA MONSTER

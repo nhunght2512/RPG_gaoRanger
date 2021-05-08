@@ -29,10 +29,17 @@ public class Tile {
     public static Tile grass14 = new Grass14(19);
     public static Tile grass15 = new Grass15(20);
     public static Tile grass16 = new Grass16(21);
+    public static Tile grass17 = new Grass17(22);
+    public static Tile grass18 = new Grass18(23);
+    public static Tile grass19 = new Grass19(24);
+    public static Tile grass20 = new Grass20(25);
+    public static Tile grass21 = new Grass21(26);
+    public static Tile grass22 = new Grass22(27);
+    public static Tile grass23 = new Grass23(28);
+    public static Tile grass24 = new Grass24(29);
+    public static Tile grass25 = new Grass25(30);
 
     public static Tile bound = new bound(5);
-//    public static Tile dirt = new Dirt(7);
-//    public static Tile grass = new Grass(8);
 
     public static final int TILE_WIDTH = 32;
     public static final int TILE_HEIGHT = 32;

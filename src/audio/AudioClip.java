@@ -19,9 +19,9 @@ public abstract class AudioClip {
 
     protected abstract float getVolume(float volume);
 
-    public boolean hasFinishedPlaying() {
+/*    public boolean hasFinishedPlaying() {
         return !clip.isRunning();
-    }
+    }*/
 
     public void cleanUp() {
         clip.close();

@@ -9,8 +9,10 @@ public class Asset {
     public static BufferedImage back, lake, gate, bridge, fence, rock, rock1, rock2, rock3, garden1, garden2, garden3,
                                 brick1, bound,
                                 brick2, brick3, brick4, brick5,
-                                grass1, grass2, grass3, grass4, grass5, grass6, grass7, grass8, grass9, grass10, grass11, grass12, grass13, grass14, grass15, grass16,
-                                tree, tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
+                                grass1, grass2, grass3, grass4, grass5, grass6, grass7, grass8, grass9, grass10,
+                                grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
+                                grass21, grass22, grass23, grass24, grass25,
+                                tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
                                 swordUp, swordDown, swordLeft, swordRight, loseState, iceCream;
     public static BufferedImage[] buttonStart,
                                   buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
@@ -151,6 +153,15 @@ public class Asset {
         grass14 = gach.crop(288, 32, 32, 32);
         grass15 = gach.crop(0, 64, 32, 32);
         grass16 = gach.crop(32, 64, 32, 32);
+        grass17 = vatThe.crop(864, 0, 32, 32);
+        grass18 = vatThe.crop(896, 0, 32, 32);
+        grass19 = vatThe.crop(928, 0, 32, 32);
+        grass20 = vatThe.crop(864, 32, 32, 32);
+        grass21 = vatThe.crop(896, 32, 32, 32);
+        grass22 = vatThe.crop(928, 32, 32, 32);
+        grass23 = vatThe.crop(864, 64, 32, 32);
+        grass24 = vatThe.crop(896, 64, 32, 32);
+        grass25 = vatThe.crop(928, 64, 32, 32);
 
         bound = gach.crop(160,0,32,32);
 

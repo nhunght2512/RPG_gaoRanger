@@ -65,22 +65,16 @@ public class World {
         entityManager.addEntity(new ObjectRPG(handler, 992, 32, Asset.tree1, 96, 128, 20, 100, 50, 20));
         entityManager.addEntity(new ObjectRPG(handler, 992, 192, Asset.tree4, 96, 160, 40, 100, 20, 20));
         entityManager.addEntity(new ObjectRPG(handler, 128, 448, Asset.tree2, 64, 96, 16, 64, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 32, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 64, 512, Asset.tree10, 32, 32, 0, 0, 0, 0));
         entityManager.addEntity(new ObjectRPG(handler, 320, 416, Asset.tree1, 96, 128, 25, 96, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 224, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 256, 512, Asset.tree10, 32, 32, 0, 0, 0, 0));
         entityManager.addEntity(new ObjectRPG(handler, 512, 448, Asset.tree2, 64, 96, 16, 64, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 416, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 448, 512, Asset.tree9, 32, 64, 0, 0, 0, 0));
         entityManager.addEntity(new ObjectRPG(handler, 704, 416, Asset.tree1, 96, 128, 25, 96, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 608, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 640, 512, Asset.tree8, 32, 64, 0, 0, 0, 0));
         entityManager.addEntity(new ObjectRPG(handler, 896, 448, Asset.tree2, 64, 96, 16, 64, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 800, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 832, 512, Asset.tree7, 32, 32, 0, 0, 0, 0));
         entityManager.addEntity(new ObjectRPG(handler, 1088, 416, Asset.tree1, 96, 128, 25, 96, 32, 32));
-        entityManager.addEntity(new ObjectRPG(handler, 992, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));
         entityManager.addEntity(new ObjectRPG(handler, 1024, 512, Asset.tree6, 32, 32, 0, 0, 0, 0));
 
         entityManager.addEntity(new ObjectRPG(handler, 1184, 480, Asset.garden3, 96, 96, 32, 32, 32, 32));

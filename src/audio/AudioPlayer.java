@@ -21,7 +21,7 @@ public class AudioPlayer {
         audioClips = new ArrayList<>();
     }
 
-    public void update() {
+/*    public void update() {
         audioClips.forEach(audioClip -> audioClip.update());
 
         List.copyOf(audioClips).forEach(audioClip -> {
@@ -30,7 +30,7 @@ public class AudioPlayer {
                 audioClips.remove(audioClip);
             }
         });
-    }
+    }*/
 
     public void playMusic(String fileName) {
         final Clip clip = getClip(fileName);

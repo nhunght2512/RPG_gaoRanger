@@ -14,28 +14,28 @@ public class Asset {
                                 grass21, grass22, grass23, grass24, grass25,
                                 tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
                                 swordUp, swordDown, swordLeft, swordRight, loseState, iceCream;
-    public static BufferedImage[] buttonStart,
+    public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart,
                                   buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
                                   redUp, redDown, redLeft, redRight,
                                   blackUp, blackDown, blackLeft, blackRight,
                                   blueUp, blueDown, blueLeft, blueRight,
                                   yelUp, yelDown, yelLeft, yelRight,
                                   whiteUp, whiteDown, whiteLeft,whiteRight,
-                                  buttonCharacter, hpBar, mpBar;
+                                  hpBar, mpBar;
 
     public static void init(){
         //LOAD ANH
-        SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/Logo-gaoranger.png"));
+        SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/bg_gao1.png"));
         SpriteSheet sword1 = new SpriteSheet(LoadImage.loadImage("/textures/sword_up.png"));
         SpriteSheet sword2 = new SpriteSheet(LoadImage.loadImage("/textures/sword_down.png"));
         SpriteSheet sword3 = new SpriteSheet(LoadImage.loadImage("/textures/sword_left.png"));
         SpriteSheet sword4 = new SpriteSheet(LoadImage.loadImage("/textures/sword_right.png"));
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
-        SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/lose.png"));
+        SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/endGame.png"));
         SpriteSheet gao = new SpriteSheet(LoadImage.loadImage("/textures/gaoRangerAll.png"));
         SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
         SpriteSheet chooseGao = new SpriteSheet(LoadImage.loadImage("/textures/chooseGao.png"));
-        SpriteSheet button = new SpriteSheet(LoadImage.loadImage("/textures/button_game3.png"));
+        SpriteSheet button = new SpriteSheet(LoadImage.loadImage("/textures/buttonAll.png"));
         SpriteSheet vatThe = new SpriteSheet(LoadImage.loadImage("/textures/vatTheAll.png"));
         SpriteSheet gach = new SpriteSheet(LoadImage.loadImage("/BackGround/rockAll.png"));
 
@@ -64,13 +64,18 @@ public class Asset {
         whiteLeft = new BufferedImage[3];
         whiteRight = new BufferedImage[3];
 
-        Asset.buttonStart = new BufferedImage[3];
+        buttonStart = new BufferedImage[3];
         buttonred = new BufferedImage[2];
         buttonbla = new BufferedImage[2];
         buttonyel = new BufferedImage[2];
         buttonblu = new BufferedImage[2];
         buttonwhi = new BufferedImage[2];
         buttonCharacter = new BufferedImage[2];
+        buttonLevel = new BufferedImage[2];
+        buttonRestart = new BufferedImage[2];
+        buttonExit = new BufferedImage[2];
+        buttonHard = new BufferedImage[2];
+        buttonEasy = new BufferedImage[2];
         hpBar = new BufferedImage[6];
         mpBar = new BufferedImage[6];
 
@@ -100,10 +105,6 @@ public class Asset {
         cut(47, 47, 12, 2, 3, 1, whiteRight, gao);
         cut(47, 47, 12, 3, 3, 1, whiteUp, gao);
 
-        //CAT CHON NUT
-        buttonStart[0] = button.crop(0,0, 513, 187);
-        buttonStart[1] = button.crop(577, 0, 513,187);
-
         //CAT CHON GAO
         cut(160, 500, 0, 0, 2, 1, buttonred, chooseGao);
         cut(160, 500, 2, 0, 2, 1, buttonblu, chooseGao);
@@ -111,10 +112,21 @@ public class Asset {
         cut(160, 500, 6, 0, 2, 1, buttonyel, chooseGao);
         cut(160, 500, 8, 0, 2, 1, buttonwhi, chooseGao);
 
-        buttonCharacter[0] = button.crop(0,445,513,187);
-        buttonCharacter[1] = button.crop(577,445,513,187);
-
-
+        //CAT CHON NUT
+        buttonStart[0] = button.crop(0, 0, 250, 91);
+        buttonStart[1] = button.crop(255, 0, 250,91);
+        buttonLevel[0] = button.crop(0, 100, 250, 91);
+        buttonLevel[1] = button.crop(255, 100, 250, 91);
+        buttonCharacter[0] = button.crop(0, 200,250,91);
+        buttonCharacter[1] = button.crop(255,200,250,91);
+        buttonEasy[0] = button.crop(510, 0, 250, 91);
+        buttonEasy[1] = button.crop(510, 100, 250, 91);
+        buttonHard[0] = button.crop(510, 200, 250, 91);
+        buttonHard[1] = button.crop(510, 300, 250, 91);
+        buttonRestart[0] = button.crop(0, 300, 250, 91);
+        buttonRestart[1] = button.crop(255, 300, 250, 91);
+        buttonExit[0] = button.crop(0, 400, 250, 91);
+        buttonExit[1] = button.crop(255, 400, 250, 91);
 
         swordUp = sword1.crop(0,0,172,230);
 
@@ -129,7 +141,7 @@ public class Asset {
 
 
         //CAT GACH
-        back = logo.crop(0,0,800,360);
+        back = logo.crop(0,0,800,500);
 
         brick1 = gach.crop(0, 0, 32, 32);
         brick2 = gach.crop(32, 0, 32,32);
@@ -191,7 +203,7 @@ public class Asset {
         garden3 = vatThe.crop(864, 0, 96, 96);
 
 
-        loseState = lose.crop(0,0,800,400);
+        loseState = lose.crop(0,0,800,500);
         iceCream = item.crop(0,0,186,171);
     }
 

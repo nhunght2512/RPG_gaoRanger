@@ -21,7 +21,7 @@ public class LevelState extends State{
         handler.getMouseManager().setUiManager(uiManager);
 
         //BLUE BUTTON
-        uiManager.addObject(new UIImageButton(150,400, 100, 100, Asset.buttonblu, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,150, 250, 91, Asset.buttonEasy, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 speed = 1;
@@ -29,7 +29,7 @@ public class LevelState extends State{
             }
         }));
         //YELLOW BUTTON
-        uiManager.addObject(new UIImageButton(650,400, 90, 100, Asset.buttonyel, new ClickListener(){
+        uiManager.addObject(new UIImageButton(300,250, 250, 91, Asset.buttonHard, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 speed = 3;

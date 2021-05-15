@@ -5,15 +5,14 @@ import World.World;
 
 import java.awt.*;
 
-public class GameState extends State{
+public class GameState1 extends State{
     private World world;
     private int color;
-
-    public GameState(Handler handler, int color){
+    public GameState1(Handler handler, int color) {
         super(handler);
-        State.isMap = true;
+        State.isMap = false;
         this.color = color;
-        world = new World(handler, "res/World/World1.txt", color);
+        world = new World(handler, "res/World/World2.txt", color);
         handler.setWorld(world);
     }
 
@@ -21,25 +20,15 @@ public class GameState extends State{
     public void tick() {
         world.tick();
         if(handler.getMouseManager().isRightPressed()){
-            //State.setState(new MenuState(handler));
             System.exit(0);
         }
         if(!handler.getEntityManager().getPlayer().isActive()){
             State.setState(new LoseState(handler));
-        }
-
-        if(handler.getWorld().getEntityManager().getPlayer().getX() > 1820 &&
-                handler.getWorld().getEntityManager().getPlayer().getY() > 988){
-            State.setState(new GameState1(handler, color));
         }
     }
 
     @Override
     public void render(Graphics g) {
         world.render(g);
-    }
-
-    public void setColor(int color) {
-        this.color = color;
     }
 }

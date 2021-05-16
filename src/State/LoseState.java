@@ -32,6 +32,8 @@ public class LoseState extends State{
                 System.exit(0);
             }
         }));
+
+        handler.getAudioPlayer().playSound("gameOver.wav");
     }
 
     @Override

@@ -12,9 +12,9 @@ public class AudioPlayer {
 
     private Handler handler;
 
-    private List<AudioClip> audioClips;
+    public List<AudioClip> audioClips;
 
-    private Clip clip;
+    public Clip clip;
 
     public AudioPlayer(Handler handler) {
         this.handler = handler;
@@ -43,12 +43,11 @@ public class AudioPlayer {
         audioClips.add(new SoundClip(clip));
     }
 
-    /*public void stopPlaying(){
-        clip.close();
-        clip.stop();
-    }*/
+    public static void stopPlaying() {
 
-    private Clip getClip(String fileName) {
+    }
+
+    private static Clip getClip(String fileName) {
         final URL soundFile = AudioPlayer.class.getResource("/sound/" + fileName);
         try(AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile)) {
             //audioFormat(audioInputStream);

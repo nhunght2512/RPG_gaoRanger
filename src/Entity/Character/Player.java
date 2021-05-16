@@ -18,6 +18,7 @@ public class Player extends Creature {
     private Animation animRigth;
     private BufferedImage animStay;
     private int mp = 0;
+    private BufferedImage lastKnownAnimationFrame;
 
     //HP BAR
     private BufferedImage hp;
@@ -41,30 +42,35 @@ public class Player extends Creature {
             animLeft = new Animation(500, Asset.redLeft);
             animRigth = new Animation(500, Asset.redRight);
             animStay = Asset.redDown[0];
+            lastKnownAnimationFrame = Asset.redDown[0];
         }else if (color == 2){
             animDown = new Animation(500, Asset.blueDown);
             animUp = new Animation(500, Asset.blueUp);
             animLeft = new Animation(500, Asset.blueLeft);
             animRigth = new Animation(500, Asset.blueRight);
             animStay = Asset.blueDown[0];
+            lastKnownAnimationFrame = Asset.blueDown[0];
         }else if (color == 3){
             animDown = new Animation(500, Asset.blackDown);
             animUp = new Animation(500, Asset.blackUp);
             animLeft = new Animation(500, Asset.blackLeft);
             animRigth = new Animation(500, Asset.blackRight);
             animStay = Asset.blackDown[0];
+            lastKnownAnimationFrame = Asset.blackDown[0];
         }else if (color == 4){
             animDown = new Animation(500, Asset.yelDown);
             animUp = new Animation(500, Asset.yelUp);
             animLeft = new Animation(500, Asset.yelLeft);
             animRigth = new Animation(500, Asset.yelRight);
             animStay = Asset.yelDown[0];
+            lastKnownAnimationFrame = Asset.yelDown[0];
         }else {
             animDown = new Animation(500, Asset.whiteDown);
             animUp = new Animation(500, Asset.whiteUp);
             animLeft = new Animation(500, Asset.whiteLeft);
             animRigth = new Animation(500, Asset.whiteRight);
             animStay = Asset.whiteDown[0];
+            lastKnownAnimationFrame = Asset.whiteDown[0];
         }
     }
 
@@ -168,18 +174,17 @@ public class Player extends Creature {
         System.out.println("you lose");
     }
 
-    private BufferedImage getCurrentAnimationFrame(){
-        if(xMove < 0){
-            return animLeft.getCurrentFrame();
-        }else if(xMove > 0){
-            return animRigth.getCurrentFrame();
-        }else if(yMove < 0){
-            return animUp.getCurrentFrame();
-        }else if(yMove > 0){
-            return animDown.getCurrentFrame();
-        }else {
-            return animStay;
+    private BufferedImage getCurrentAnimationFrame() {
+        if (xMove < 0) {
+            lastKnownAnimationFrame = animLeft.getCurrentFrame();
+        } else if (xMove > 0) {
+            lastKnownAnimationFrame = animRigth.getCurrentFrame();
+        } else if (yMove < 0) {
+            lastKnownAnimationFrame = animUp.getCurrentFrame();
+        } else if (yMove > 0) {
+            lastKnownAnimationFrame = animDown.getCurrentFrame();
         }
+        return lastKnownAnimationFrame;
     }
 
     public int getMp() {

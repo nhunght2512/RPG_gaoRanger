@@ -19,9 +19,15 @@ public class GameState1 extends State{
     @Override
     public void tick() {
         world.tick();
+
+        if(World.countMonster == 0){
+            State.setState(new WinState(handler));
+        }
+
         if(handler.getMouseManager().isRightPressed()){
             System.exit(0);
         }
+
         if(!handler.getEntityManager().getPlayer().isActive()){
             State.setState(new LoseState(handler));
         }

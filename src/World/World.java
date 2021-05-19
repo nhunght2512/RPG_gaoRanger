@@ -25,6 +25,7 @@ public class World {
     private int spawnY;
     private int[][] tiles;
     private int size;
+    public static int countMonster;
 
     //ATTACK TIMER
     private long lastAttackTimer;
@@ -136,18 +137,21 @@ public class World {
             entityManager.addEntity(new ObjectRPG(handler, 1856, 224, Asset.tree11, 32, 64, 0, 0, 0, 0));
             entityManager.addEntity(new ObjectRPG(handler, 1856, 160, Asset.tree11, 32, 64, 0, 0, 0, 0));
 
-            entityManager.addEntity(new Monster(handler, 500, 300));
-            entityManager.addEntity(new Monster(handler, 300, 400));
-            entityManager.addEntity(new Monster(handler, 800, 700));
-            entityManager.addEntity(new Monster(handler, 720, 700));
-            entityManager.addEntity(new Monster(handler, 740, 700));
-            entityManager.addEntity(new Monster(handler, 760, 700));
-            entityManager.addEntity(new Monster(handler, 780, 700));
-            entityManager.addEntity(new Monster(handler, 700, 700));
+
+            //CREATE MONSTER
+            countMonster = 13;
+            entityManager.addEntity(new Monster(handler, 450, 300));
+            entityManager.addEntity(new Monster(handler, 260, 400));
+            entityManager.addEntity(new Monster(handler, 800, 400));
+            entityManager.addEntity(new Monster(handler, 1200, 200));
+            entityManager.addEntity(new Monster(handler, 1740, 400));
+            entityManager.addEntity(new Monster(handler, 1760, 500));
+            entityManager.addEntity(new Monster(handler, 1780, 700));
+            entityManager.addEntity(new Monster(handler, 1700, 700));
             entityManager.addEntity(new Monster(handler, 200, 700));
             entityManager.addEntity(new Monster(handler, 300, 700));
             entityManager.addEntity(new Monster(handler, 400, 700));
-            entityManager.addEntity(new Monster(handler, 500, 700));
+            entityManager.addEntity(new Monster(handler, 1500, 700));
             entityManager.addEntity(new Monster(handler, 600, 700));
         } else{
 

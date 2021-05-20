@@ -215,11 +215,11 @@ public class World {
             }
         }
 
-        //RENDER ITEMS
-        itemManager.render(g);
-
         //RENDER ENTITY
         entityManager.render(g);
+
+        //RENDER ITEMS
+        itemManager.render(g);
     }
 
     public Tile getTile(int x, int y){

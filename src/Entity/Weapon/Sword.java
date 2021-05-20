@@ -1,5 +1,6 @@
 package Entity.Weapon;
 
+import Entity.Character.Monster;
 import Entity.Entity;
 import Handler.Handler;
 
@@ -39,7 +40,8 @@ public abstract class Sword extends Entity {
             if(e.equals(handler.getWorld().getEntityManager().getPlayer()) || e instanceof Sword){
                 continue;
             }
-            if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
+            if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))
+            && (e instanceof Monster)){
                 e.hurt(amt);//TRU MAU QUAI VAT
                 if(handler.getWorld().getEntityManager().getPlayer().getMp() <= 10){
                     handler.getWorld().getEntityManager().getPlayer().setMp(1);//TANG MP

@@ -21,7 +21,7 @@ public class GameState extends State{
     public void tick() {
         world.tick();
 
-        if(World.countMonster == 12){
+        if(World.countMonster == 0){
             State.setState(new WinState(handler));
         }
 

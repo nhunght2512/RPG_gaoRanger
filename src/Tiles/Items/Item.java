@@ -34,7 +34,7 @@ public class Item {
         this.id = id;
         count = 1;
 
-        bounds = new Rectangle(x, y, ITEM_WIDTH, ITEM_HEIGHT);
+        bounds = new Rectangle(x + 8, y + 10, 15, 15);
 
         items[id] = this;
     }
@@ -61,6 +61,8 @@ public class Item {
 
     public void render(Graphics g, int x, int y){
         g.drawImage(texture, x, y, ITEM_WIDTH, ITEM_HEIGHT, null);
+        /*g.setColor(Color.cyan);
+        g.fillRect(x, y, bounds.width, bounds.height);*/
     }
 
     public Item createNewItem(int x, int y){

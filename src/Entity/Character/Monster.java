@@ -79,10 +79,10 @@ public class Monster extends Creature {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
         g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
-//        g.setColor(Color.cyan);
-//        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-//                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-//                bounds.width, bounds.height);
+        /*g.setColor(Color.cyan);
+        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+                bounds.width, bounds.height);*/
     }
 
     //RANDOM HUONG DI CUA MONSTER

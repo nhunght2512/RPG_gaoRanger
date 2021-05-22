@@ -34,11 +34,11 @@ public class Monster extends Creature {
     public Monster(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-        animDown = new Animation(500, Asset.blueDown);
-        animUp = new Animation(500, Asset.blueUp);
-        animLeft = new Animation(500, Asset.blueLeft);
-        animRigth = new Animation(500, Asset.blueRight);
-        animStay = Asset.blueDown[0];
+        animDown = new Animation(500, Asset.pigDown);
+        animUp = new Animation(500, Asset.pigUp);
+        animLeft = new Animation(500, Asset.pigLeft);
+        animRigth = new Animation(500, Asset.pigRight);
+        animStay = Asset.pigDown[0];
 
         bounds.x = 20;
         bounds.y = 10;

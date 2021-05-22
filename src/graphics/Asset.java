@@ -21,15 +21,14 @@ public class Asset {
                                   blueUp, blueDown, blueLeft, blueRight,
                                   yelUp, yelDown, yelLeft, yelRight,
                                   whiteUp, whiteDown, whiteLeft,whiteRight,
+                                  pigUp, pigDown, pigLeft, pigRight,
+                                  virusUp, virusDown, virusLeft, virusRight,
+                                  bossUp, bossDown, bossLeft, bossRight,
                                   hpBar, mpBar;
 
     public static void init(){
         //LOAD ANH
         SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/bg_gao1.png"));
-        SpriteSheet sword1 = new SpriteSheet(LoadImage.loadImage("/textures/sword_up.png"));
-        SpriteSheet sword2 = new SpriteSheet(LoadImage.loadImage("/textures/sword_down.png"));
-        SpriteSheet sword3 = new SpriteSheet(LoadImage.loadImage("/textures/sword_left.png"));
-        SpriteSheet sword4 = new SpriteSheet(LoadImage.loadImage("/textures/sword_right.png"));
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
         SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/endGame.png"));
         SpriteSheet gao = new SpriteSheet(LoadImage.loadImage("/textures/gaoRangerAll.png"));
@@ -38,6 +37,7 @@ public class Asset {
         SpriteSheet button = new SpriteSheet(LoadImage.loadImage("/textures/buttonAll.png"));
         SpriteSheet vatThe = new SpriteSheet(LoadImage.loadImage("/textures/vatTheAll.png"));
         SpriteSheet gach = new SpriteSheet(LoadImage.loadImage("/BackGround/rockAll.png"));
+        SpriteSheet monster = new SpriteSheet(LoadImage.loadImage("/textures/monsterAll.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -64,6 +64,21 @@ public class Asset {
         whiteLeft = new BufferedImage[3];
         whiteRight = new BufferedImage[3];
 
+        virusUp = new BufferedImage[3];
+        virusDown = new BufferedImage[3];
+        virusLeft = new BufferedImage[3];
+        virusRight = new BufferedImage[3];
+
+        pigUp = new BufferedImage[3];
+        pigDown = new BufferedImage[3];
+        pigLeft = new BufferedImage[3];
+        pigRight = new BufferedImage[3];
+
+        bossUp = new BufferedImage[3];
+        bossDown = new BufferedImage[3];
+        bossLeft = new BufferedImage[3];
+        bossRight = new BufferedImage[3];
+
         buttonStart = new BufferedImage[3];
         buttonred = new BufferedImage[2];
         buttonbla = new BufferedImage[2];
@@ -80,30 +95,30 @@ public class Asset {
         mpBar = new BufferedImage[6];
 
         //CAT GAO
-        cut(47, 47, 0, 0, 3, 1, redDown, gao);
-        cut(47, 47, 0, 1, 3, 1, redLeft, gao);
-        cut(47, 47, 0, 2, 3, 1, redRight, gao);
-        cut(47, 47, 0, 3, 3, 1, redUp, gao);
+        cut(47, 48, 0, 0, 3, 1, redDown, gao);
+        cut(47, 48, 0, 1, 3, 1, redLeft, gao);
+        cut(47, 48, 0, 2, 3, 1, redRight, gao);
+        cut(47, 48, 0, 3, 3, 1, redUp, gao);
 
-        cut(47, 47, 3, 0, 3, 1, blackDown, gao);
-        cut(47, 47, 3, 1, 3, 1, blackLeft, gao);
-        cut(47, 47, 3, 2, 3, 1, blackRight, gao);
-        cut(47, 47, 3, 3, 3, 1, blackUp, gao);
+        cut(47, 48, 3, 0, 3, 1, blackDown, gao);
+        cut(47, 48, 3, 1, 3, 1, blackLeft, gao);
+        cut(47, 48, 3, 2, 3, 1, blackRight, gao);
+        cut(47, 48, 3, 3, 3, 1, blackUp, gao);
 
-        cut(47, 47, 6, 0, 3, 1, blueDown, gao);
-        cut(47, 47, 6, 1, 3, 1, blueLeft, gao);
-        cut(47, 47, 6, 2, 3, 1, blueRight, gao);
-        cut(47, 47, 6, 3, 3, 1, blueUp, gao);
+        cut(47, 48, 6, 0, 3, 1, blueDown, gao);
+        cut(47, 48, 6, 1, 3, 1, blueLeft, gao);
+        cut(47, 48, 6, 2, 3, 1, blueRight, gao);
+        cut(47, 48, 6, 3, 3, 1, blueUp, gao);
 
-        cut(47, 47, 9, 0, 3, 1, yelDown, gao);
-        cut(47, 47, 9, 1, 3, 1, yelLeft, gao);
-        cut(47, 47, 9, 2, 3, 1, yelRight, gao);
-        cut(47, 47, 9, 3, 3, 1, yelUp, gao);
+        cut(47, 48, 9, 0, 3, 1, yelDown, gao);
+        cut(47, 48, 9, 1, 3, 1, yelLeft, gao);
+        cut(47, 48, 9, 2, 3, 1, yelRight, gao);
+        cut(47, 48, 9, 3, 3, 1, yelUp, gao);
 
-        cut(47, 47, 12, 0, 3, 1, whiteDown, gao);
-        cut(47, 47, 12, 1, 3, 1, whiteLeft, gao);
-        cut(47, 47, 12, 2, 3, 1, whiteRight, gao);
-        cut(47, 47, 12, 3, 3, 1, whiteUp, gao);
+        cut(47, 48, 12, 0, 3, 1, whiteDown, gao);
+        cut(47, 48, 12, 1, 3, 1, whiteLeft, gao);
+        cut(47, 48, 12, 2, 3, 1, whiteRight, gao);
+        cut(47, 48, 12, 3, 3, 1, whiteUp, gao);
 
         //CAT CHON GAO
         cut(160, 500, 0, 0, 2, 1, buttonred, chooseGao);
@@ -111,6 +126,17 @@ public class Asset {
         cut(160, 500, 4, 0, 2, 1, buttonbla, chooseGao);
         cut(160, 500, 6, 0, 2, 1, buttonyel, chooseGao);
         cut(160, 500, 8, 0, 2, 1, buttonwhi, chooseGao);
+
+        //CAT CHON QUAI
+        cut(48, 48, 0, 0, 3, 1, virusDown, monster);
+        cut(48, 48, 0, 1, 3, 1, virusLeft, monster);
+        cut(48, 48, 0, 2, 3, 1, virusRight, monster);
+        cut(48, 48, 0, 3, 3, 1, virusUp, monster);
+
+        cut(48, 48, 3, 0, 3, 1, pigDown, monster);
+        cut(48, 48, 3, 1, 3, 1, pigLeft, monster);
+        cut(48, 48, 3, 2, 3, 1, pigRight, monster);
+        cut(48, 48, 3, 3, 3, 1, pigUp, monster);
 
         //CAT CHON NUT
         buttonStart[0] = button.crop(0, 0, 250, 91);
@@ -128,13 +154,11 @@ public class Asset {
         buttonExit[0] = button.crop(0, 400, 250, 91);
         buttonExit[1] = button.crop(255, 400, 250, 91);
 
-        swordUp = sword1.crop(0,0,172,230);
-
-        swordDown = sword2.crop(0,0,193,257);
-
-        swordLeft = sword3.crop(276,0,271,187);
-
-        swordRight = sword4.crop(0,0,270,185);
+        //CAT KIEM
+        swordUp = monster.crop(49, 282, 45, 144);
+        swordDown = monster.crop(0, 282, 45, 144);
+        swordLeft = monster.crop(0, 237, 144, 45);
+        swordRight = monster.crop(0, 192, 144, 45);
 
         cut(255,40,0,0,1,6,hpBar,hpmp);
         cut(255,40,1,0,1,6,mpBar,hpmp);

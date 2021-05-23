@@ -3,6 +3,8 @@ package Entity.Character;
 import Entity.Character.Creature;
 import Entity.Entity;
 import Handler.Handler;
+import Inventory.Inventory;
+import Tiles.Items.Item;
 import graphics.Animation;
 import graphics.Asset;
 
@@ -23,6 +25,9 @@ public class Player extends Creature {
     //HP BAR
     private BufferedImage hp;
     private BufferedImage MP;
+
+    //INVENTORY
+    private Inventory inventory;
 
     public Player(Handler handler, float x, float y, int color, int health, int mp) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -73,6 +78,8 @@ public class Player extends Creature {
             animStay = Asset.whiteDown[0];
             lastKnownAnimationFrame = Asset.whiteDown[0];
         }
+
+        inventory = new Inventory(handler);
     }
 
     @Override
@@ -91,6 +98,9 @@ public class Player extends Creature {
         //HP BAR
         getHpBar();
         getMpBar();
+
+        //INVENTORY
+        inventory.tick();
     }
 
     public void getInput(){
@@ -120,6 +130,10 @@ public class Player extends Creature {
 //        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
 //                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
 //                bounds.width, bounds.height);
+    }
+    //INVENTORY RENDER
+    public void postRender(Graphics g){
+        inventory.render(g);
     }
 
     public void getHpBar(){
@@ -155,21 +169,6 @@ public class Player extends Creature {
         }
     }
 
-    //CHECK XEM CO DUNG PHAI MONSTER KHONG DE TRU MAU
-    protected boolean checkMonster(){
-        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
-            if(e.equals(this)){
-                continue;
-            }
-            if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
-                if(e instanceof Monster){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     @Override
     public void die() {
         System.out.println("you lose");
@@ -194,5 +193,13 @@ public class Player extends Creature {
 
     public void setMp(int amt) {
         this.mp = mp + amt;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }

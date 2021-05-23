@@ -13,7 +13,7 @@ public class Asset {
                                 grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
                                 grass21, grass22, grass23, grass24, grass25,
                                 tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
-                                swordUp, swordDown, swordLeft, swordRight, loseState, iceCream;
+                                swordUp, swordDown, swordLeft, swordRight, loseState, iceCream, icecream1, icecream2, inventory;
     public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart,
                                   buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
                                   redUp, redDown, redLeft, redRight,
@@ -24,7 +24,7 @@ public class Asset {
                                   pigUp, pigDown, pigLeft, pigRight,
                                   virusUp, virusDown, virusLeft, virusRight,
                                   bossUp, bossDown, bossLeft, bossRight,
-                                  hpBar, mpBar;
+                                  hpBar, mpBar, num;
 
     public static void init(){
         //LOAD ANH
@@ -32,12 +32,16 @@ public class Asset {
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
         SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/endGame.png"));
         SpriteSheet gao = new SpriteSheet(LoadImage.loadImage("/textures/gaoRangerAll.png"));
-        SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
+        SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/item2.png"));
+        SpriteSheet item1 = new SpriteSheet(LoadImage.loadImage("/textures/item1.png"));
+        SpriteSheet item2 = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
         SpriteSheet chooseGao = new SpriteSheet(LoadImage.loadImage("/textures/chooseGao.png"));
         SpriteSheet button = new SpriteSheet(LoadImage.loadImage("/textures/buttonAll.png"));
         SpriteSheet vatThe = new SpriteSheet(LoadImage.loadImage("/textures/vatTheAll.png"));
         SpriteSheet gach = new SpriteSheet(LoadImage.loadImage("/BackGround/rockAll.png"));
         SpriteSheet monster = new SpriteSheet(LoadImage.loadImage("/textures/monsterAll.png"));
+        SpriteSheet inv = new SpriteSheet(LoadImage.loadImage("/textures/Inventory.png"));
+        SpriteSheet number = new SpriteSheet(LoadImage.loadImage("/textures/number.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -94,7 +98,10 @@ public class Asset {
         hpBar = new BufferedImage[6];
         mpBar = new BufferedImage[6];
 
+        num = new BufferedImage[10];
+
         //CAT GAO
+
         cut(47, 48, 0, 0, 3, 1, redDown, gao);
         cut(47, 48, 0, 1, 3, 1, redLeft, gao);
         cut(47, 48, 0, 2, 3, 1, redRight, gao);
@@ -138,6 +145,7 @@ public class Asset {
         cut(48, 48, 3, 2, 3, 1, pigRight, monster);
         cut(48, 48, 3, 3, 3, 1, pigUp, monster);
 
+        cut(15, 18, 0, 0, 10, 1, num, number);
         //CAT CHON NUT
         buttonStart[0] = button.crop(0, 0, 250, 91);
         buttonStart[1] = button.crop(255, 0, 250,91);
@@ -229,6 +237,9 @@ public class Asset {
 
         loseState = lose.crop(0,0,800,500);
         iceCream = item.crop(0,0,186,171);
+        icecream1 = item1.crop(0,0,186,171);
+        icecream2 = item2.crop(0,0,186,171);
+        inventory = inv.crop(0,0,501,210);
     }
 
     public static void cut(int width, int height, int colx, int coly, int x, int y, BufferedImage[] bi, SpriteSheet spr){

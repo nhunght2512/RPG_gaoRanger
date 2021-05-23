@@ -8,6 +8,7 @@ import java.awt.*;
 public class GameState extends State{
     private World world;
     private int color;
+    public static int mustHaveItem = 2;
 
     public GameState(Handler handler, int color){
         super(handler);
@@ -30,7 +31,8 @@ public class GameState extends State{
         }
 
         if(handler.getWorld().getEntityManager().getPlayer().getX() > 1820 &&
-                handler.getWorld().getEntityManager().getPlayer().getY() > 988){
+                handler.getWorld().getEntityManager().getPlayer().getY() > 988 &&
+                handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() - 1 == mustHaveItem){
             State.setState(new GameState1(handler, color));
         }
     }

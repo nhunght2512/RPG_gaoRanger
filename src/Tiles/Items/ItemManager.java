@@ -22,7 +22,7 @@ public class ItemManager {
             Item i = iter.next();
             i.tick();
             //XOA VAT PHAM
-            if(i.getCount() == Item.PICKED_UP){
+            if(i.isPickedUp()){
                 iter.remove();
             }
         }

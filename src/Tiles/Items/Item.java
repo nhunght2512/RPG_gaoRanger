@@ -13,11 +13,12 @@ public class Item {
     //HANDLER
     public static Item[] items = new Item[256];
     public static Item iceCreamm = new Item(Asset.iceCream, "increaseHp", 0);
+    public static Item iceCream1 = new Item(Asset.icecream1, "item1", 1);
+    public static Item iceCream2 = new Item(Asset.icecream2, "item2", 2);
 
     //CLASS
     public static final int ITEM_WIDTH = 32;
     public static final int ITEM_HEIGHT = 32;
-    public static final int PICKED_UP = -1;
 
     protected Handler handler;
     protected BufferedImage texture;
@@ -27,6 +28,7 @@ public class Item {
     protected Rectangle bounds;
 
     protected int x, y, count;
+    protected boolean pickedUp = false;
 
     public Item(BufferedImage texture, String name, int id){
         this.texture = texture;
@@ -42,13 +44,13 @@ public class Item {
     public void tick(){
         //VAT PHAM VA PLAYER CHAM NHAU THI LAM VAT PHAM BIEN MAT
         if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds)){
-            count = PICKED_UP;
+            pickedUp = true;
+            handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
 
             //CONG MAU KHI AN VAT PHAM
-            if(handler.getWorld().getEntityManager().getPlayer().getHealth() <= 180){
+            if(handler.getWorld().getEntityManager().getPlayer().getHealth() <= 180 && (this.getId() == 0)){
                 handler.getWorld().getEntityManager().getPlayer().setHealth(20);
             }
-
         }
     }
 
@@ -132,4 +134,7 @@ public class Item {
         this.count = count;
     }
 
+    public boolean isPickedUp() {
+        return pickedUp;
+    }
 }

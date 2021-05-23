@@ -21,6 +21,8 @@ public class Monster extends Creature {
     private Animation animRigth;
     private BufferedImage animStay;
 
+    private Item item;
+
     private BufferedImage hp;
 
     //RANDOM HUONG DI CUA NHAN VAT
@@ -31,8 +33,9 @@ public class Monster extends Creature {
     private long moveCooldown = 800;//CAN CHINH THOI GIAN QUY DINH THOI GIAN CACH NHAU GIUA MOI LAN RANDOM
     private long moveTimer = moveCooldown;
 
-    public Monster(Handler handler, float x, float y) {
+    public Monster(Handler handler, float x, float y, Item item) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+        this.item = item;
 
         animDown = new Animation(500, Asset.pigDown);
         animUp = new Animation(500, Asset.pigUp);
@@ -132,7 +135,7 @@ public class Monster extends Creature {
         //KHI QUAI VAT CHET THI HIEN VAT PHAM
         World.countMonster = World.countMonster - 1;
         System.out.println("countMonster" + World.countMonster);
-        handler.getWorld().getItemManager().addItem(Item.iceCreamm.createNewItem((int) x, (int) y));
+        handler.getWorld().getItemManager().addItem(item.createNewItem((int) x, (int) y));
 
     }
 

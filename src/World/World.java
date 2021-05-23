@@ -8,6 +8,7 @@ import Entity.Weapon.Sword1;
 import Entity.Weapon.Sword2;
 import Entity.Character.Monster;
 import Handler.Handler;
+import Tiles.Items.Item;
 import Tiles.Items.ItemManager;
 import Tiles.Tile;
 import Utils.Utils;
@@ -140,29 +141,29 @@ public class World {
 
             //CREATE MONSTER
             countMonster = 13;
-            entityManager.addEntity(new Monster(handler, 450, 300));
-            entityManager.addEntity(new Monster(handler, 260, 400));
-            entityManager.addEntity(new Monster(handler, 800, 400));
-            entityManager.addEntity(new Monster(handler, 1200, 200));
-            entityManager.addEntity(new Monster(handler, 1740, 400));
-            entityManager.addEntity(new Monster(handler, 1760, 500));
-            entityManager.addEntity(new Monster(handler, 1780, 700));
-            entityManager.addEntity(new Monster(handler, 1700, 700));
-            entityManager.addEntity(new Monster(handler, 200, 700));
-            entityManager.addEntity(new Monster(handler, 300, 700));
-            entityManager.addEntity(new Monster(handler, 400, 700));
-            entityManager.addEntity(new Monster(handler, 1500, 700));
-            entityManager.addEntity(new Monster(handler, 600, 700));
+            entityManager.addEntity(new Monster(handler, 450, 300, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 260, 400, Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 800, 400, Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 1200, 200, Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 1740, 400, Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 1760, 500, Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 1780, 700, Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 1700, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 200, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 300, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 400, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 1500, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 600, 700, Item.iceCreamm));
         } else{
-            entityManager.addEntity(new Monster(handler, 450, 300));
-            entityManager.addEntity(new Monster(handler, 260, 400));
-            entityManager.addEntity(new Monster(handler, 800, 400));
-            entityManager.addEntity(new Monster(handler, 1200, 200));
-            entityManager.addEntity(new Monster(handler, 1740, 400));
-            entityManager.addEntity(new Monster(handler, 1760, 500));
-            entityManager.addEntity(new Monster(handler, 1780, 700));
-            entityManager.addEntity(new Monster(handler, 1700, 700));
-            entityManager.addEntity(new Monster(handler, 200, 700));
+            entityManager.addEntity(new Monster(handler, 450, 300, Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 260, 400, Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 800, 400, Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 1200, 200, Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 1740, 400, Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 1760, 500, Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 1780, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 1700, 700, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 200, 700, Item.iceCreamm));
         }
 
         loadWorld(path);

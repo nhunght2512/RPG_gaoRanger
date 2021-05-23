@@ -1,32 +1,33 @@
 package graphics;
 
 import java.awt.image.BufferedImage;
+
 //CROP IMAGES FROM SPRITE SHEET
 public class Asset {
     private static final int width = 47;
     private static final int height = 47;
 
     public static BufferedImage back, lake, gate, bridge, fence, rock, rock1, rock2, rock3, garden1, garden2, garden3,
-                                brick1, bound,
-                                brick2, brick3, brick4, brick5,
-                                grass1, grass2, grass3, grass4, grass5, grass6, grass7, grass8, grass9, grass10,
-                                grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
-                                grass21, grass22, grass23, grass24, grass25,
-                                tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
-                                swordUp, swordDown, swordLeft, swordRight, loseState, iceCream;
+            brick1, bound,
+            brick2, brick3, brick4, brick5,
+            grass1, grass2, grass3, grass4, grass5, grass6, grass7, grass8, grass9, grass10,
+            grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
+            grass21, grass22, grass23, grass24, grass25,
+            tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
+            swordUp, swordDown, swordLeft, swordRight, loseState, iceCream;
     public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart,
-                                  buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
-                                  redUp, redDown, redLeft, redRight,
-                                  blackUp, blackDown, blackLeft, blackRight,
-                                  blueUp, blueDown, blueLeft, blueRight,
-                                  yelUp, yelDown, yelLeft, yelRight,
-                                  whiteUp, whiteDown, whiteLeft,whiteRight,
-                                  pigUp, pigDown, pigLeft, pigRight,
-                                  virusUp, virusDown, virusLeft, virusRight,
-                                  bossUp, bossDown, bossLeft, bossRight,
-                                  hpBar, mpBar;
+            buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
+            redUp, redDown, redLeft, redRight,
+            blackUp, blackDown, blackLeft, blackRight,
+            blueUp, blueDown, blueLeft, blueRight,
+            yelUp, yelDown, yelLeft, yelRight,
+            whiteUp, whiteDown, whiteLeft, whiteRight,
+            pigUp, pigDown, pigLeft, pigRight,
+            virusUp, virusDown, virusLeft, virusRight,
+            bossUp, bossDown, bossLeft, bossRight, boss1Up, boss1Down, boss1Left, boss1Right,
+            hpBar, mpBar;
 
-    public static void init(){
+    public static void init() {
         //LOAD ANH
         SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/bg_gao1.png"));
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
@@ -38,6 +39,7 @@ public class Asset {
         SpriteSheet vatThe = new SpriteSheet(LoadImage.loadImage("/textures/vatTheAll.png"));
         SpriteSheet gach = new SpriteSheet(LoadImage.loadImage("/BackGround/rockAll.png"));
         SpriteSheet monster = new SpriteSheet(LoadImage.loadImage("/textures/monsterAll.png"));
+        SpriteSheet boss1= new SpriteSheet(LoadImage.loadImage("/textures/boss_xoanen.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -78,6 +80,11 @@ public class Asset {
         bossDown = new BufferedImage[3];
         bossLeft = new BufferedImage[3];
         bossRight = new BufferedImage[3];
+
+        boss1Up=new BufferedImage[4];
+        boss1Right= new BufferedImage[4];
+        boss1Down= new BufferedImage[4];
+        boss1Left= new BufferedImage[4];
 
         buttonStart = new BufferedImage[3];
         buttonred = new BufferedImage[2];
@@ -138,13 +145,18 @@ public class Asset {
         cut(48, 48, 3, 2, 3, 1, pigRight, monster);
         cut(48, 48, 3, 3, 3, 1, pigUp, monster);
 
+        cut(58,115,0,0, 4,1,boss1Down,boss1);
+        cut(58,115,0,1,4,1,boss1Left,boss1);
+        cut(58,115,0,2,4,1,boss1Right,boss1);
+        cut(58,115,0,3,4,1,boss1Up,boss1);
+
         //CAT CHON NUT
         buttonStart[0] = button.crop(0, 0, 250, 91);
-        buttonStart[1] = button.crop(255, 0, 250,91);
+        buttonStart[1] = button.crop(255, 0, 250, 91);
         buttonLevel[0] = button.crop(0, 100, 250, 91);
         buttonLevel[1] = button.crop(255, 100, 250, 91);
-        buttonCharacter[0] = button.crop(0, 200,250,91);
-        buttonCharacter[1] = button.crop(255,200,250,91);
+        buttonCharacter[0] = button.crop(0, 200, 250, 91);
+        buttonCharacter[1] = button.crop(255, 200, 250, 91);
         buttonEasy[0] = button.crop(510, 0, 250, 91);
         buttonEasy[1] = button.crop(510, 100, 250, 91);
         buttonHard[0] = button.crop(510, 200, 250, 91);
@@ -160,20 +172,20 @@ public class Asset {
         swordLeft = monster.crop(0, 237, 144, 45);
         swordRight = monster.crop(0, 192, 144, 45);
 
-        cut(255,40,0,0,1,6,hpBar,hpmp);
-        cut(255,40,1,0,1,6,mpBar,hpmp);
+        cut(255, 40, 0, 0, 1, 6, hpBar, hpmp);
+        cut(255, 40, 1, 0, 1, 6, mpBar, hpmp);
 
 
         //CAT GACH
-        back = logo.crop(0,0,800,500);
+        back = logo.crop(0, 0, 800, 500);
 
         brick1 = gach.crop(0, 0, 32, 32);
-        brick2 = gach.crop(32, 0, 32,32);
+        brick2 = gach.crop(32, 0, 32, 32);
         brick3 = gach.crop(64, 0, 32, 32);
         brick4 = gach.crop(96, 0, 32, 32);
         brick5 = gach.crop(128, 32, 32, 32);
 
-        grass1 = gach.crop(128, 0, 32,32);
+        grass1 = gach.crop(128, 0, 32, 32);
         grass2 = gach.crop(192, 0, 32, 32);
         grass3 = gach.crop(224, 0, 32, 32);
         grass4 = gach.crop(256, 0, 32, 32);
@@ -199,7 +211,7 @@ public class Asset {
         grass24 = vatThe.crop(896, 64, 32, 32);
         grass25 = vatThe.crop(928, 64, 32, 32);
 
-        bound = gach.crop(160,0,32,32);
+        bound = gach.crop(160, 0, 32, 32);
 
         //CAT VAT THE
         tree1 = vatThe.crop(384, 128, 96, 128);
@@ -227,15 +239,15 @@ public class Asset {
         garden3 = vatThe.crop(864, 0, 96, 96);
 
 
-        loseState = lose.crop(0,0,800,500);
-        iceCream = item.crop(0,0,186,171);
+        loseState = lose.crop(0, 0, 800, 500);
+        iceCream = item.crop(0, 0, 186, 171);
     }
 
-    public static void cut(int width, int height, int colx, int coly, int x, int y, BufferedImage[] bi, SpriteSheet spr){
+    public static void cut(int width, int height, int colx, int coly, int x, int y, BufferedImage[] bi, SpriteSheet spr) {
         int count = 0;
-        for(int i = colx; i < colx + x; i++){
-            for(int j = coly; j < coly + y; j++){
-                bi[count] = spr.crop(i*width, j*height, width, height);
+        for (int i = colx; i < colx + x; i++) {
+            for (int j = coly; j < coly + y; j++) {
+                bi[count] = spr.crop(i * width, j * height, width, height);
                 count++;
             }
         }

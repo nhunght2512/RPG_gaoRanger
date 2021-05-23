@@ -32,13 +32,20 @@ public class Monster extends Creature {
     private long moveTimer = moveCooldown;
 
     public Monster(Handler handler, float x, float y) {
-        super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+        super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, 64);
 
-        animDown = new Animation(500, Asset.pigDown);
-        animUp = new Animation(500, Asset.pigUp);
-        animLeft = new Animation(500, Asset.pigLeft);
-        animRigth = new Animation(500, Asset.pigRight);
-        animStay = Asset.pigDown[0];
+//        animDown = new Animation(500, Asset.pigDown);
+//        animUp = new Animation(500, Asset.pigUp);
+//        animLeft = new Animation(500, Asset.pigLeft);
+//        animRigth = new Animation(500, Asset.pigRight);
+//        animStay = Asset.pigDown[0];
+
+        animDown = new Animation(500, Asset.boss1Down);
+        animUp = new Animation(500, Asset.boss1Up);
+        animLeft = new Animation(500, Asset.boss1Left);
+        animRigth = new Animation(500, Asset.boss1Right);
+        animStay = Asset.boss1Down[0];
+
 
         bounds.x = 20;
         bounds.y = 10;

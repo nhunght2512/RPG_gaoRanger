@@ -17,17 +17,18 @@ public class Player extends Creature {
     private Animation animLeft;
     private Animation animRigth;
     private BufferedImage animStay;
-    private int mp = 0;
+    private int mp;
     private BufferedImage lastKnownAnimationFrame;
 
     //HP BAR
     private BufferedImage hp;
     private BufferedImage MP;
 
-    public Player(Handler handler, float x, float y, int color) {
+    public Player(Handler handler, float x, float y, int color, int health, int mp) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-        health = 200;
+        this.health = health;
+        this.mp = mp;
 
         bounds.x = 20;
         bounds.y = 25;

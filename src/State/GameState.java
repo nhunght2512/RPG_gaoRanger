@@ -13,7 +13,7 @@ public class GameState extends State{
         super(handler);
         State.isMap = true;
         this.color = color;
-        world = new World(handler, "res/World/World1.txt", color);
+        world = new World(handler, "res/World/World1.txt", color, 200, 0);
         handler.setWorld(world);
     }
 

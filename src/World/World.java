@@ -42,9 +42,9 @@ public class World {
     //CREATE ITEMS
     private ItemManager itemManager;
 
-    public World(Handler handler, String path, int color){
+    public World(Handler handler, String path, int color, int health, int mp){
         this.handler = handler;
-        entityManager = new EntityManager(handler, new Player(handler, 500, 500, color));
+        entityManager = new EntityManager(handler, new Player(handler, 500, 500, color, health, mp));
         itemManager = new ItemManager(handler);
 
         //CREATE ENTITIES
@@ -154,7 +154,15 @@ public class World {
             entityManager.addEntity(new Monster(handler, 1500, 700));
             entityManager.addEntity(new Monster(handler, 600, 700));
         } else{
-
+            entityManager.addEntity(new Monster(handler, 450, 300));
+            entityManager.addEntity(new Monster(handler, 260, 400));
+            entityManager.addEntity(new Monster(handler, 800, 400));
+            entityManager.addEntity(new Monster(handler, 1200, 200));
+            entityManager.addEntity(new Monster(handler, 1740, 400));
+            entityManager.addEntity(new Monster(handler, 1760, 500));
+            entityManager.addEntity(new Monster(handler, 1780, 700));
+            entityManager.addEntity(new Monster(handler, 1700, 700));
+            entityManager.addEntity(new Monster(handler, 200, 700));
         }
 
         loadWorld(path);

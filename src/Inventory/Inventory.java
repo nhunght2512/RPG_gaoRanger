@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Inventory {
 
     private Handler handler;
-    private boolean active = false;
+    public static boolean active = false;
     private ArrayList<Item> inventoryItem;
 
     public Inventory(Handler handler){

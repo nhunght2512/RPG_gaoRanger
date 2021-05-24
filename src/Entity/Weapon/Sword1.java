@@ -24,8 +24,8 @@ public class Sword1 extends Sword {
 
         bounds.x = 0;
         bounds.y = 0;
-        bounds.width = 20;
-        bounds.height = 20;
+        bounds.width = 21;
+        bounds.height = 25;
     }
 
     @Override
@@ -41,8 +41,8 @@ public class Sword1 extends Sword {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(img, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
-        //g.fillRect((int) (x + bounds.x), (int) (y+ bounds.y), bounds.width, bounds.height);
+        g.drawImage(img, (int)(x - handler.getGameCamera().getxOffset() + 10 ), (int)(y - handler.getGameCamera().getyOffset() + 10 ), width, height, null);
+        //g.fillRect((int)(x - handler.getGameCamera().getxOffset() + 10 ), (int)(y - handler.getGameCamera().getyOffset() + 10 ), bounds.width, bounds.height);
     }
 
     public void getInput(){

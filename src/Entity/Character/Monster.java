@@ -36,6 +36,8 @@ public class Monster extends Creature {
     private long moveCooldown = 800;//CAN CHINH THOI GIAN QUY DINH THOI GIAN CACH NHAU GIUA MOI LAN RANDOM
     private long moveTimer = moveCooldown;
 
+    public final int r=350;
+
     public Monster(Handler handler, float x, float y, int width, int height, int type, Item item) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
         this.item = item;
@@ -49,19 +51,24 @@ public class Monster extends Creature {
             animLeft = new Animation(500, Asset.boss1Left);
             animRigth = new Animation(500, Asset.boss1Right);
             animStay = Asset.boss1Down[0];
+            bounds.x =5;
+            bounds.y = 5;
+            bounds.width = 35;
+            bounds.height = 60;
         } else {
             animDown = new Animation(500, Asset.pigDown);
             animUp = new Animation(500, Asset.pigUp);
             animLeft = new Animation(500, Asset.pigLeft);
             animRigth = new Animation(500, Asset.pigRight);
             animStay = Asset.pigDown[0];
+            bounds.x =5;
+            bounds.y = 5;
+            bounds.width = 35;
+            bounds.height = 30;
 
         }
 
-        bounds.x =5;
-        bounds.y = 5;
-        bounds.width = 23;
-        bounds.height = 30;
+
     }
 
     @Override
@@ -97,10 +104,10 @@ public class Monster extends Creature {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
         g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
-        g.setColor(Color.cyan);
-        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                bounds.width, bounds.height);
+//        g.setColor(Color.cyan);
+//        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+//                (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+//                bounds.width, bounds.height);
     }
 
     //RANDOM HUONG DI CUA MONSTER
@@ -126,6 +133,23 @@ public class Monster extends Creature {
             xMove = speed;
         }
         moveTimer = 0;
+
+        double dx= handler.getWorld().getEntityManager().getPlayer().getX();
+        double dy= handler.getWorld().getEntityManager().getPlayer().getY();
+        if (Math.sqrt(Math.pow(x- dx,2) + Math.pow(y-dy,2)) < r){
+            if(Math.abs(x-dx) > Math.abs(y-dy)){
+                if(x >= dx){
+                    xMove -= 1;
+                }else{
+                    xMove+=1;
+                }
+            }else if ( y < dy){
+                yMove += 1;
+            } else if( y >= dy){
+                yMove -= 1;
+            }
+
+        }
     }
 
     public void getHpBar(){

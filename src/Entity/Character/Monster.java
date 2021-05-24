@@ -25,6 +25,9 @@ public class Monster extends Creature {
 
     private BufferedImage hp;
 
+    private int width;
+    private int height;
+
     //RANDOM HUONG DI CUA NHAN VAT
     private Random random = new Random();
 
@@ -33,18 +36,30 @@ public class Monster extends Creature {
     private long moveCooldown = 800;//CAN CHINH THOI GIAN QUY DINH THOI GIAN CACH NHAU GIUA MOI LAN RANDOM
     private long moveTimer = moveCooldown;
 
-    public Monster(Handler handler, float x, float y, Item item) {
+    public Monster(Handler handler, float x, float y, int width, int height, int type, Item item) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
         this.item = item;
+        this.width = width;
+        this.height = height;
 
-        animDown = new Animation(500, Asset.pigDown);
-        animUp = new Animation(500, Asset.pigUp);
-        animLeft = new Animation(500, Asset.pigLeft);
-        animRigth = new Animation(500, Asset.pigRight);
-        animStay = Asset.pigDown[0];
+        //CHON LOAI QUAI VAT
+        if(type == 1){
+            animDown = new Animation(500, Asset.boss1Down);
+            animUp = new Animation(500, Asset.boss1Up);
+            animLeft = new Animation(500, Asset.boss1Left);
+            animRigth = new Animation(500, Asset.boss1Right);
+            animStay = Asset.boss1Down[0];
+        } else {
+            animDown = new Animation(500, Asset.pigDown);
+            animUp = new Animation(500, Asset.pigUp);
+            animLeft = new Animation(500, Asset.pigLeft);
+            animRigth = new Animation(500, Asset.pigRight);
+            animStay = Asset.pigDown[0];
 
-        bounds.x = 20;
-        bounds.y = 10;
+        }
+
+        bounds.x =5;
+        bounds.y = 5;
         bounds.width = 23;
         bounds.height = 30;
     }
@@ -82,10 +97,10 @@ public class Monster extends Creature {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
         g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
-        /*g.setColor(Color.cyan);
+        g.setColor(Color.cyan);
         g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
                 (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                bounds.width, bounds.height);*/
+                bounds.width, bounds.height);
     }
 
     //RANDOM HUONG DI CUA MONSTER

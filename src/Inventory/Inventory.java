@@ -39,7 +39,9 @@ public class Inventory {
                 return;
             }
         }
-        inventoryItem.add(item);
+        if(item.getId() != 0){
+            inventoryItem.add(item);
+        }
     }
 
     public void render(Graphics g){
@@ -47,11 +49,13 @@ public class Inventory {
             return;
         }
         g.drawImage(Asset.inventory,100,100,501,210,null);
-        int t=0;
+
+        //VE VAT PHAM VAO INVENTORY SHEET
+        int t = 0;
         for(Item i : inventoryItem){
             if(i.getId() != 0){
-                g.drawImage(i.getTexture(), 110 + 50*t +25*t,150,50,50, null);
-                g.drawImage(Asset.num[i.getCount()], 110 + 50*(t) + 20*(t) + 30,150+35, null);
+                g.drawImage(i.getTexture(), 110 + 70 * (t),150,50,50, null);
+                g.drawImage(Asset.num[i.getCount()], 110 + 70*(t)+ 30,150+35, null);
                 t++;
             }
         }

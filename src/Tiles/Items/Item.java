@@ -36,7 +36,7 @@ public class Item {
         this.id = id;
         count = 1;
 
-        bounds = new Rectangle(x + 8, y + 10, 15, 15);
+        bounds = new Rectangle(x, y, ITEM_WIDTH, ITEM_HEIGHT);
 
         items[id] = this;
     }

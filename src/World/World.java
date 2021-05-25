@@ -145,19 +145,19 @@ public class World {
 
             //CREATE MONSTER
             countMonster = 13;
-            entityManager.addEntity(new Monster(handler, 450, 300, 48, 48, 2, Item.iceCreamm));
-            entityManager.addEntity(new Monster(handler, 260, 400, 35, 70, 1,Item.iceCream1));
-            entityManager.addEntity(new Monster(handler, 800, 400, 48, 48, 2,Item.iceCreamm));
-            entityManager.addEntity(new Monster(handler, 1200, 200, 35, 70, 1,Item.iceCream2));
-            entityManager.addEntity(new Monster(handler, 1740, 400, 48, 48, 2,Item.iceCreamm));
-            entityManager.addEntity(new Monster(handler, 1760, 500, 35, 70, 1,Item.iceCream1));
-            entityManager.addEntity(new Monster(handler, 1780, 700, 48, 48, 2,Item.iceCreamm));
-            entityManager.addEntity(new Monster(handler, 1700, 700, 35, 70, 1,Item.iceCream2));
-            entityManager.addEntity(new Monster(handler, 200, 700, 48, 48, 2,Item.iceCreamm));
-            entityManager.addEntity(new Monster(handler, 300, 700, 35, 70, 1,Item.iceCream1));
-            entityManager.addEntity(new Monster(handler, 400, 700, 48, 48, 2,Item.iceCreamm));
-            entityManager.addEntity(new Monster(handler, 1500, 700, 35, 70, 1,Item.iceCream2));
-            entityManager.addEntity(new Monster(handler, 600, 700, 48, 48, 2,Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 450, 300, 48, 48, 1, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 260, 400, 35, 70, 4,Item.iceCream3));
+            entityManager.addEntity(new Monster(handler, 800, 400, 48, 48, 1, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 1200, 200, 35, 70, 4,Item.iceCream3));
+            entityManager.addEntity(new Monster(handler, 1740, 400, 48, 48, 2,Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 1760, 500, 48, 48, 1, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 1780, 700, 48, 48, 2,Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 1700, 700, 48, 48, 3,Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 200, 700, 48, 48, 2,Item.iceCream1));
+            entityManager.addEntity(new Monster(handler, 300, 700, 48, 48, 1, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 400, 700, 48, 48, 3,Item.iceCream2));
+            entityManager.addEntity(new Monster(handler, 1500, 700, 48, 48, 1, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 600, 700, 48, 48, 2,Item.iceCream1));
         } else{
             entityManager.addEntity(new Monster(handler, 450, 300, 35, 70, 1,Item.iceCream1));
             entityManager.addEntity(new Monster(handler, 260, 400, 35, 70, 1,Item.iceCream2));

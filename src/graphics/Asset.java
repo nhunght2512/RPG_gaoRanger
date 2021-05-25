@@ -17,7 +17,7 @@ public class Asset {
                                 swordUp, swordDown, swordLeft, swordRight, loseState,
                                 fireBallUp, fireBallDown, fireBallLeft, fireBallRight,
                                 chest1, chest2, chest3, chest4, chest5, chest6,
-                                iceCream, icecream1, icecream2, inventory;
+                                iceCream, icecream1, icecream2, icecream3, inventory;
     public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart,
                                   buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
                                   redUp, redDown, redLeft, redRight,
@@ -40,6 +40,7 @@ public class Asset {
         SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/item2.png"));
         SpriteSheet item1 = new SpriteSheet(LoadImage.loadImage("/textures/item1.png"));
         SpriteSheet item2 = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
+        SpriteSheet item3 = new SpriteSheet(LoadImage.loadImage("/textures/item3.png"));
         SpriteSheet chooseGao = new SpriteSheet(LoadImage.loadImage("/textures/chooseGao.png"));
         SpriteSheet button = new SpriteSheet(LoadImage.loadImage("/textures/buttonAll.png"));
         SpriteSheet vatThe = new SpriteSheet(LoadImage.loadImage("/textures/vatTheAll.png"));
@@ -281,6 +282,7 @@ public class Asset {
         iceCream = item.crop(0,0,186,171);
         icecream1 = item1.crop(0,0,186,171);
         icecream2 = item2.crop(0,0,186,171);
+        icecream3 = item3.crop(0, 0, 186, 171);
         inventory = inv.crop(0,0,501,210);
 
         //CAT RUONG

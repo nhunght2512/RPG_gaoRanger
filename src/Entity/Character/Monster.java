@@ -46,16 +46,6 @@ public class Monster extends Creature {
 
         //CHON LOAI QUAI VAT
         if(type == 1){
-            animDown = new Animation(500, Asset.boss1Down);
-            animUp = new Animation(500, Asset.boss1Up);
-            animLeft = new Animation(500, Asset.boss1Left);
-            animRigth = new Animation(500, Asset.boss1Right);
-            animStay = Asset.boss1Down[0];
-            bounds.x =5;
-            bounds.y = 5;
-            bounds.width = 35;
-            bounds.height = 60;
-        } else {
             animDown = new Animation(500, Asset.pigDown);
             animUp = new Animation(500, Asset.pigUp);
             animLeft = new Animation(500, Asset.pigLeft);
@@ -65,7 +55,36 @@ public class Monster extends Creature {
             bounds.y = 5;
             bounds.width = 35;
             bounds.height = 30;
-
+        } else if (type == 2){
+            animDown = new Animation(500, Asset.ghostDown);
+            animUp = new Animation(500, Asset.ghostUp);
+            animLeft = new Animation(500, Asset.ghostLeft);
+            animRigth = new Animation(500, Asset.ghostRight);
+            animStay = Asset.ghostDown[0];
+            bounds.x =5;
+            bounds.y = 5;
+            bounds.width = 35;
+            bounds.height = 30;
+        } else if (type == 3){
+            animDown = new Animation(500, Asset.virusDown);
+            animUp = new Animation(500, Asset.virusUp);
+            animLeft = new Animation(500, Asset.virusLeft);
+            animRigth = new Animation(500, Asset.virusRight);
+            animStay = Asset.virusDown[0];
+            bounds.x =5;
+            bounds.y = 5;
+            bounds.width = 35;
+            bounds.height = 30;
+        } else {
+            animDown = new Animation(500, Asset.boss1Down);
+            animUp = new Animation(500, Asset.boss1Up);
+            animLeft = new Animation(500, Asset.boss1Left);
+            animRigth = new Animation(500, Asset.boss1Right);
+            animStay = Asset.boss1Down[0];
+            bounds.x =5;
+            bounds.y = 5;
+            bounds.width = 35;
+            bounds.height = 60;
         }
 
 
@@ -94,7 +113,7 @@ public class Monster extends Creature {
             }
             if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
                 if(e instanceof Player){
-                    handler.getWorld().getEntityManager().getPlayer().hurt(2);
+                    handler.getWorld().getEntityManager().getPlayer().hurt(1);
                 }
             }
         }

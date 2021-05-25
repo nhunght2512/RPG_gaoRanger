@@ -1,12 +1,10 @@
 package Tiles.Items;
 
 import Handler.Handler;
-import graphics.Animation;
 import graphics.Asset;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.security.PublicKey;
 
 public class Item {
 
@@ -15,6 +13,7 @@ public class Item {
     public static Item iceCreamm = new Item(Asset.iceCream, "increaseHp", 0);
     public static Item iceCream1 = new Item(Asset.icecream1, "item1", 1);
     public static Item iceCream2 = new Item(Asset.icecream2, "item2", 2);
+    public static Item iceCream3 = new Item(Asset.icecream3, "item3", 3);
 
     //CLASS
     public static final int ITEM_WIDTH = 32;
@@ -49,7 +48,7 @@ public class Item {
 
             //CONG MAU KHI AN VAT PHAM
             if(handler.getWorld().getEntityManager().getPlayer().getHealth() <= 180 && (this.getId() == 0)){
-                handler.getWorld().getEntityManager().getPlayer().setHealth(40);
+                handler.getWorld().getEntityManager().getPlayer().setHealth(80);
             }
         }
     }

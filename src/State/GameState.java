@@ -13,7 +13,7 @@ import java.awt.*;
 public class GameState extends State{
     private World world;
     private int color;
-    public static int mustHaveItem = 2;
+    public static int mustHaveItem = 3;
 
     //NUT INVENTORY
     public UIManager uiManager;

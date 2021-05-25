@@ -29,7 +29,7 @@ public class Asset {
                                   virusUp, virusDown, virusLeft, virusRight,
                                   bossUp, bossDown, bossLeft, bossRight, boss1Up, boss1Down, boss1Left, boss1Right,
                                   ghostUp, ghostDown, ghostLeft, ghostRight,
-                                  hpBar, mpBar, num;
+                                  hpBar, mpBar, num, gateSwitch;
 
     public static void init() {
         //LOAD ANH
@@ -50,6 +50,7 @@ public class Asset {
         SpriteSheet number = new SpriteSheet(LoadImage.loadImage("/textures/number.png"));
         SpriteSheet boss1= new SpriteSheet(LoadImage.loadImage("/textures/boss_xoanen.png"));
         SpriteSheet vatThe2 = new SpriteSheet(LoadImage.loadImage("/textures/vatThemap2.png"));
+        SpriteSheet gateSW = new SpriteSheet(LoadImage.loadImage("/textures/gate.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -118,6 +119,8 @@ public class Asset {
 
         num = new BufferedImage[10];
 
+        gateSwitch = new BufferedImage[6];
+
         //CAT GAO
 
         cut(47, 48, 0, 0, 3, 1, redDown, gao);
@@ -176,6 +179,9 @@ public class Asset {
 
         //CAT SO INVENTORY
         cut(15, 18, 0, 0, 10, 1, num, number);
+
+        //CAT GATE
+        cut(120,120,0,0,6,1, gateSwitch, gateSW);
 
         //CAT CHON NUT
         buttonStart[0] = button.crop(0, 0, 250, 91);

@@ -2,6 +2,7 @@ package World;
 
 import Entity.EntityManager;
 import Entity.Character.Player;
+import Entity.StaticEntity.Gate;
 import Entity.StaticEntity.ObjectRPG;
 import Entity.Weapon.Sword;
 import Entity.Weapon.Sword1;
@@ -142,6 +143,8 @@ public class World {
             entityManager.addEntity(new ObjectRPG(handler, 1856, 224, Asset.tree11, 32, 64, 0, 0, 0, 0));
             entityManager.addEntity(new ObjectRPG(handler, 1856, 160, Asset.tree11, 32, 64, 0, 0, 0, 0));
 
+            //CONG DICH CHUYEN
+            entityManager.addEntity(new Gate(handler, 1800, 1020, 120, 120));
 
             //CREATE MONSTER
             countMonster = 13;

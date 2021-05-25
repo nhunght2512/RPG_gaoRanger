@@ -7,14 +7,17 @@ public class Asset {
     private static final int width = 47;
     private static final int height = 47;
 
-    public static BufferedImage back, lake, gate, bridge, fence, rock, rock1, rock2, rock3, garden1, garden2, garden3,
+    public static BufferedImage back, lake, gate, bridge, fence, rock, rock1, rock2, rock3, garden1, garden2, garden3, garden4, garden5, garden6, garden7, garden8,
                                 brick1, bound,
-                                brick2, brick3, brick4, brick5,
+                                brick2, brick3, brick4, brick5, brick6, brick7,
                                 grass1, grass2, grass3, grass4, grass5, grass6, grass7, grass8, grass9, grass10,
                                 grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
                                 grass21, grass22, grass23, grass24, grass25,
                                 tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
-                                swordUp, swordDown, swordLeft, swordRight, loseState, iceCream, icecream1, icecream2, inventory;
+                                swordUp, swordDown, swordLeft, swordRight, loseState,
+                                fireBallUp, fireBallDown, fireBallLeft, fireBallRight,
+                                chest1, chest2, chest3, chest4, chest5, chest6,
+                                iceCream, icecream1, icecream2, inventory;
     public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart,
                                   buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
                                   redUp, redDown, redLeft, redRight,
@@ -25,6 +28,7 @@ public class Asset {
                                   pigUp, pigDown, pigLeft, pigRight,
                                   virusUp, virusDown, virusLeft, virusRight,
                                   bossUp, bossDown, bossLeft, bossRight, boss1Up, boss1Down, boss1Left, boss1Right,
+                                  ghostUp, ghostDown, ghostLeft, ghostRight,
                                   hpBar, mpBar, num;
 
     public static void init() {
@@ -44,6 +48,7 @@ public class Asset {
         SpriteSheet inv = new SpriteSheet(LoadImage.loadImage("/textures/Inventory.png"));
         SpriteSheet number = new SpriteSheet(LoadImage.loadImage("/textures/number.png"));
         SpriteSheet boss1= new SpriteSheet(LoadImage.loadImage("/textures/boss_xoanen.png"));
+        SpriteSheet vatThe2 = new SpriteSheet(LoadImage.loadImage("/textures/vatThemap2.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -79,6 +84,11 @@ public class Asset {
         pigDown = new BufferedImage[3];
         pigLeft = new BufferedImage[3];
         pigRight = new BufferedImage[3];
+
+        ghostUp = new BufferedImage[3];
+        ghostDown = new BufferedImage[3];
+        ghostLeft = new BufferedImage[3];
+        ghostRight = new BufferedImage[3];
 
         bossUp = new BufferedImage[3];
         bossDown = new BufferedImage[3];
@@ -158,6 +168,11 @@ public class Asset {
         cut(58,115,0,2,4,1,boss1Right,boss1);
         cut(58,115,0,3,4,1,boss1Up,boss1);
 
+        cut(48, 48, 6, 0, 3, 1, ghostDown, monster);
+        cut(48, 48, 6, 1, 3, 1, ghostLeft, monster);
+        cut(48, 48, 6, 2, 3, 1, ghostRight, monster);
+        cut(48, 48, 6, 3, 3, 1, ghostUp, monster);
+
         //CAT SO INVENTORY
         cut(15, 18, 0, 0, 10, 1, num, number);
 
@@ -183,6 +198,12 @@ public class Asset {
         swordLeft = monster.crop(0, 237, 144, 45);
         swordRight = monster.crop(0, 192, 144, 45);
 
+        //CAT CAU LUA
+        fireBallRight = monster.crop(145, 192, 96, 67);
+        fireBallLeft = monster.crop(195, 266, 96, 67);
+        fireBallUp = monster.crop(248, 189, 67, 96);
+        fireBallDown = monster.crop(159, 326, 67, 96);
+
         cut(255, 40, 0, 0, 1, 6, hpBar, hpmp);
         cut(255, 40, 1, 0, 1, 6, mpBar, hpmp);
 
@@ -195,6 +216,8 @@ public class Asset {
         brick3 = gach.crop(64, 0, 32, 32);
         brick4 = gach.crop(96, 0, 32, 32);
         brick5 = gach.crop(128, 32, 32, 32);
+        brick6 = gach.crop(64, 64, 32, 32);
+        brick7 = gach.crop(96, 64, 32, 32);
 
         grass1 = gach.crop(128, 0, 32, 32);
         grass2 = gach.crop(192, 0, 32, 32);
@@ -248,12 +271,25 @@ public class Asset {
         garden1 = vatThe.crop(384, 0, 192, 128);
         garden2 = vatThe.crop(704, 0, 160, 192);
         garden3 = vatThe.crop(864, 0, 96, 96);
+        garden4 = vatThe.crop(0, 352, 352, 192);
+        garden5 = vatThe.crop(0, 544, 96, 192);
+        garden6 = vatThe.crop(352, 352, 320, 352);
+        garden7 = vatThe.crop(672, 320, 128, 384);
+        garden8 = vatThe.crop(800, 320, 224, 320);
 
         loseState = lose.crop(0,0,800,500);
         iceCream = item.crop(0,0,186,171);
         icecream1 = item1.crop(0,0,186,171);
         icecream2 = item2.crop(0,0,186,171);
         inventory = inv.crop(0,0,501,210);
+
+        //CAT RUONG
+        chest1 = vatThe2.crop(0, 0, 32, 32);
+        chest2 = vatThe2.crop(49, 0, 32, 32);
+        chest3 = vatThe2.crop(98, 0, 32, 32);
+        chest4 = vatThe2.crop(147, 0, 32, 32);
+        chest5 = vatThe2.crop(196, 0, 32, 32);
+        chest6 = vatThe2.crop(245, 0, 32, 32);
 
         loseState = lose.crop(0, 0, 800, 500);
         iceCream = item.crop(0, 0, 186, 171);

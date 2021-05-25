@@ -50,6 +50,10 @@ public class World {
 
         //CREATE ENTITIES
         if(State.isMap == true){
+            entityManager.addEntity(new ObjectRPG(handler, 480, 32, Asset.garden4, 352, 192, 0, 0, 0, 0));
+            entityManager.addEntity(new ObjectRPG(handler, 896, 32, Asset.garden6, 320, 352, 0, 0, 0, 0));
+            entityManager.addEntity(new ObjectRPG(handler, 1600, 32, Asset.garden8, 224, 320, 0, 0, 0, 0));
+
             entityManager.addEntity(new ObjectRPG(handler, 512, 32, Asset.tree1, 96, 128, 0, 100, 80, 20));
             entityManager.addEntity(new ObjectRPG(handler, 64, 64, Asset.lake, 384, 352, 32, 32, 320, 288));
             entityManager.addEntity(new ObjectRPG(handler, 96, 64, Asset.rock3, 32, 64, 0, 0, 32, 64));

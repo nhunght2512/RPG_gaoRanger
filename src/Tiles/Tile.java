@@ -12,6 +12,8 @@ public class Tile {
     public static Tile brick3 = new Brick3(2);
     public static Tile brick4 = new Brick4(3);
     public static Tile brick5 = new Brick5(14);
+    public static Tile brick6 = new Brick6(31);
+    public static Tile brick7 = new Brick7(32);
 
     public static Tile grass1 = new Grass1(4);
     public static Tile grass2 = new Grass2(6);

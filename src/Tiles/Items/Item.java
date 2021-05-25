@@ -49,7 +49,7 @@ public class Item {
 
             //CONG MAU KHI AN VAT PHAM
             if(handler.getWorld().getEntityManager().getPlayer().getHealth() <= 180 && (this.getId() == 0)){
-                handler.getWorld().getEntityManager().getPlayer().setHealth(20);
+                handler.getWorld().getEntityManager().getPlayer().setHealth(40);
             }
         }
     }

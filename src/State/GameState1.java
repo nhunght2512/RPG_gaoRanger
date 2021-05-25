@@ -13,13 +13,14 @@ import java.awt.*;
 public class GameState1 extends State{
     private World world;
     private int color;
+    public static int mustHaveItem = 3;
 
     //NUT INVENTORY
     public UIManager uiManager;
 
     public GameState1(Handler handler, int color) {
         super(handler);
-        State.isMap = false;
+        State.isMap = 2;
         this.color = color;
         world = new World(handler, "res/World/World1.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
                 handler.getWorld().getEntityManager().getPlayer().getMp());
@@ -39,16 +40,18 @@ public class GameState1 extends State{
     public void tick() {
         world.tick();
 
-        if(World.countMonster == 0){
-            State.setState(new WinState(handler));
-        }
-
         if(handler.getMouseManager().isRightPressed()){
             System.exit(0);
         }
 
         if(!handler.getEntityManager().getPlayer().isActive()){
             State.setState(new LoseState(handler));
+        }
+
+        if(handler.getWorld().getEntityManager().getPlayer().getX() < 100 &&
+                handler.getWorld().getEntityManager().getPlayer().getY() < 100 /*&&
+                handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem*/){
+            State.setState(new GameState2(handler, color));
         }
 
         //NUT INVENTORY

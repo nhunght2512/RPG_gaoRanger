@@ -5,7 +5,7 @@ import Handler.Handler;
 import java.awt.*;
 
 public abstract class State {
-    public static boolean isMap;
+    public static int isMap;
     private static State currentState = null;
     public State previousState;
     protected Handler handler;

@@ -50,7 +50,7 @@ public class World {
         itemManager = new ItemManager(handler);
 
         //CREATE ENTITIES
-        if(State.isMap == true){
+        if(State.isMap == 1){
             entityManager.addEntity(new ObjectRPG(handler, 480, 32, Asset.garden4, 352, 192, 0, 0, 0, 0));
             entityManager.addEntity(new ObjectRPG(handler, 896, 32, Asset.garden6, 320, 352, 0, 0, 0, 0));
             entityManager.addEntity(new ObjectRPG(handler, 1600, 32, Asset.garden8, 224, 320, 0, 0, 0, 0));
@@ -161,7 +161,7 @@ public class World {
             entityManager.addEntity(new Monster(handler, 400, 700, 48, 48, 3,Item.iceCream2));
             entityManager.addEntity(new Monster(handler, 1500, 700, 48, 48, 1, Item.iceCreamm));
             entityManager.addEntity(new Monster(handler, 600, 700, 48, 48, 2,Item.iceCream1));
-        } else{
+        } else if (State.isMap == 2){
             entityManager.addEntity(new Monster(handler, 450, 300, 35, 70, 1,Item.iceCream1));
             entityManager.addEntity(new Monster(handler, 260, 400, 35, 70, 1,Item.iceCream2));
             entityManager.addEntity(new Monster(handler, 800, 400, 48, 48, 2,Item.iceCreamm));
@@ -171,6 +171,8 @@ public class World {
             entityManager.addEntity(new Monster(handler, 1780, 700, 35, 70, 1,Item.iceCream1));
             entityManager.addEntity(new Monster(handler, 1700, 700, 35, 70, 1,Item.iceCream2));
             entityManager.addEntity(new Monster(handler, 200, 700, 48, 48, 2,Item.iceCreamm));
+        } else {
+
         }
 
         loadWorld(path);

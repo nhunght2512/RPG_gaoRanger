@@ -20,7 +20,7 @@ public class GameState extends State{
 
     public GameState(Handler handler, int color){
         super(handler);
-        State.isMap = true;
+        State.isMap = 1;
         this.color = color;
         world = new World(handler, "res/World/World1.txt", color, 400, 0);
         handler.setWorld(world);
@@ -39,17 +39,13 @@ public class GameState extends State{
     public void tick() {
         world.tick();
 
-        if(World.countMonster == 0){
-            State.setState(new WinState(handler));
-        }
-
         if(!handler.getEntityManager().getPlayer().isActive()){
             State.setState(new LoseState(handler));
         }
 
         if(handler.getWorld().getEntityManager().getPlayer().getX() > 1820 &&
-                handler.getWorld().getEntityManager().getPlayer().getY() > 988 &&
-                handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem){
+                handler.getWorld().getEntityManager().getPlayer().getY() > 988 /*&&
+                handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem*/){
             State.setState(new GameState1(handler, color));
         }
 
@@ -63,9 +59,5 @@ public class GameState extends State{
 
         //NUT INVENTORY
         uiManager.render(g);
-    }
-
-    public void setColor(int color) {
-        this.color = color;
     }
 }

@@ -11,9 +11,9 @@ public class Item {
     //HANDLER
     public static Item[] items = new Item[256];
     public static Item iceCreamm = new Item(Asset.iceCream, "increaseHp", 0);
-    public static Item iceCream1 = new Item(Asset.icecream1, "item1", 1);
-    public static Item iceCream2 = new Item(Asset.icecream2, "item2", 2);
-    public static Item iceCream3 = new Item(Asset.icecream3, "item3", 3);
+    public static Item iceCream1 = new Item(Asset.chest2, "item1", 1);
+    public static Item iceCream2 = new Item(Asset.chest3, "item2", 2);
+    public static Item iceCream3 = new Item(Asset.chest4, "item3", 3);
 
     //CLASS
     public static final int ITEM_WIDTH = 32;

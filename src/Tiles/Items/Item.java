@@ -47,8 +47,10 @@ public class Item {
             handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
 
             //CONG MAU KHI AN VAT PHAM
-            if(handler.getWorld().getEntityManager().getPlayer().getHealth() <= 180 && (this.getId() == 0)){
+            System.out.println("id cua vat pham roi ra" + this.getId());
+            if(handler.getWorld().getEntityManager().getPlayer().getHealth() <= 400 && (this.getId() == 0)){
                 handler.getWorld().getEntityManager().getPlayer().setHealth(80);
+                System.out.println("da an va tang mau" + this.getId());
             }
         }
     }

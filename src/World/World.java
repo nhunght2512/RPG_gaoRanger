@@ -183,6 +183,7 @@ public class World {
         makeBullet(entityManager.getPlayer().getX(), entityManager.getPlayer().getY());
         entityManager.tick();
         itemManager.tick();
+        System.out.println("mau cua player" + entityManager.getPlayer().getHealth());
     }
 
     private void makeBullet(float x, float y){

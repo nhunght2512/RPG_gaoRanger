@@ -1,10 +1,7 @@
 package Entity.Character;
 
-import Entity.Character.Creature;
-import Entity.Entity;
 import Handler.Handler;
 import Inventory.Inventory;
-import Tiles.Items.Item;
 import graphics.Animation;
 import graphics.Asset;
 

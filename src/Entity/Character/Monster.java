@@ -33,10 +33,10 @@ public class Monster extends Creature {
 
     //THOI GIAN CACH NHAU GIUA NHUNG LAN RANDOM HUONG DI
     private long lastMove;
-    private long moveCooldown = 800;//CAN CHINH THOI GIAN QUY DINH THOI GIAN CACH NHAU GIUA MOI LAN RANDOM
+    private long moveCooldown = 1000;//CAN CHINH THOI GIAN QUY DINH THOI GIAN CACH NHAU GIUA MOI LAN RANDOM
     private long moveTimer = moveCooldown;
 
-    public final int r=350;
+    public final int r=400;
 
     public Monster(Handler handler, float x, float y, int width, int height, int type, Item item) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);

@@ -25,14 +25,14 @@ public class GameCamera {
 
         if(yOffset < 0){
             yOffset = 0;
-        }else if(yOffset > handler.getWorld().getWidth() * Tile.TILE_HEIGHT - handler.getHeight()){
-            yOffset = handler.getWorld().getWidth() * Tile.TILE_HEIGHT - handler.getHeight();
+        }else if(yOffset > handler.getWorld().getHeigth() * Tile.TILE_HEIGHT - handler.getHeight()){
+            yOffset = handler.getWorld().getHeigth() * Tile.TILE_HEIGHT - handler.getHeight();
         }
     }
 
     public void centerOnEntity(Entity e){
-        xOffset = e.getX() - handler.getWidth() / 2;
-        yOffset = e.getY() - handler.getHeight() / 2;
+        xOffset = e.getX() - handler.getWidth() / 2 + e.getWidth();
+        yOffset = e.getY() - handler.getHeight() / 2+ e.getHeight();
         checkBlankSpace();
     }
 

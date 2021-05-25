@@ -138,15 +138,15 @@ public class Player extends Creature {
     }
 
     public void getHpBar(){
-        if(health >160){
+        if(health > 320){
             hp = Asset.hpBar[0];
-        }else if(health>120){
+        }else if(health > 240){
             hp = Asset.hpBar[1];
-        }else if(health>80){
+        }else if(health > 160){
             hp = Asset.hpBar[2];
-        }else if(health >40){
+        }else if(health > 80){
             hp = Asset.hpBar[3];
-        }else if(health >0){
+        }else if(health > 0){
             hp = Asset.hpBar[5];
         }else{
             hp = Asset.hpBar[4];
@@ -155,13 +155,13 @@ public class Player extends Creature {
     }
 
     public void getMpBar(){
-        if(mp >8){
+        if(mp > 8){
             MP = Asset.mpBar[0];
-        }else if(mp>6){
+        }else if(mp > 6){
             MP = Asset.mpBar[1];
-        }else if(mp>4){
+        }else if(mp > 4){
             MP = Asset.mpBar[2];
-        }else if(mp >2){
+        }else if(mp > 2){
             MP = Asset.mpBar[3];
         }else if(mp > 0){
             MP = Asset.mpBar[5];

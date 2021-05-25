@@ -22,7 +22,7 @@ public class GameState extends State{
         super(handler);
         State.isMap = true;
         this.color = color;
-        world = new World(handler, "res/World/World1.txt", color, 200, 0);
+        world = new World(handler, "res/World/World1.txt", color, 400, 0);
         handler.setWorld(world);
 
         //NUT INVENTORY

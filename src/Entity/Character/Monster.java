@@ -94,7 +94,7 @@ public class Monster extends Creature {
             }
             if(e.getCollisionBounds(0,0).intersects(getCollisionBounds(0,0))){
                 if(e instanceof Player){
-                    handler.getWorld().getEntityManager().getPlayer().hurt(1);
+                    handler.getWorld().getEntityManager().getPlayer().hurt(2);
                 }
             }
         }

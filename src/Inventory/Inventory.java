@@ -20,9 +20,6 @@ public class Inventory {
     }
 
     public void tick(){
-        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_E)){
-            active = !active;
-        }
         if(!active){
             return;
         }

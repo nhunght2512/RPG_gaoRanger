@@ -148,7 +148,7 @@ public class World {
 
             //CREATE MONSTER
             countMonster = 13;
-            entityManager.addEntity(new Monster(handler, 450, 300, 48, 48, 1, Item.iceCreamm));
+            entityManager.addEntity(new Monster(handler, 700, 300, 48, 48, 1, Item.iceCreamm));
             entityManager.addEntity(new Monster(handler, 260, 400, 35, 70, 4,Item.iceCream3));
             entityManager.addEntity(new Monster(handler, 800, 400, 48, 48, 1, Item.iceCreamm));
             entityManager.addEntity(new Monster(handler, 1200, 200, 35, 70, 4,Item.iceCream3));

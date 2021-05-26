@@ -207,12 +207,12 @@ public class Asset {
 
         //CAT CAU LUA
         fireBallRight = monster.crop(145, 192, 96, 67);
-        fireBallLeft = monster.crop(195, 266, 96, 67);
-        fireBallUp = monster.crop(248, 189, 67, 96);
-        fireBallDown = monster.crop(159, 326, 67, 96);
+        fireBallLeft = monster.crop(144, 266, 96, 67);
+        fireBallUp = monster.crop(248, 189, 67, 92);
+        fireBallDown = monster.crop(159, 337, 67, 92);
 
-        cut(255, 40, 0, 0, 1, 6, hpBar, hpmp);
-        cut(255, 40, 1, 0, 1, 6, mpBar, hpmp);
+        cut(242, 36, 0, 0, 1, 6, hpBar, hpmp);
+        cut(242, 36, 1, 0, 1, 6, mpBar, hpmp);
 
 
         //CAT GACH

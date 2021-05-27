@@ -28,7 +28,7 @@ public class GameState extends State{
         //NUT INVENTORY
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
-        uiManager.addObject(new UIImageButton(10,10, 30, 30, Asset.buttonStart, new ClickListener(){
+        uiManager.addObject(new UIImageButton(10,10, 161, 75, Asset.buttonBag, new ClickListener(){
             public void onClick(){
                 Inventory.active = !Inventory.active;
             }

@@ -7,18 +7,20 @@ public class Asset {
     private static final int width = 47;
     private static final int height = 47;
 
-    public static BufferedImage back, lake, gate, bridge, fence, rock, rock1, rock2, rock3, garden1, garden2, garden3, garden4, garden5, garden6, garden7, garden8,
+    public static BufferedImage back, lake, gate, bridge, fence, fence1, rock, rock1, rock2, rock3, garden1, garden2, garden3, garden4, garden5, garden6, garden7, garden8,
                                 brick1, bound,
-                                brick2, brick3, brick4, brick5, brick6, brick7,
+                                brick2, brick3, brick4, brick5, brick6, brick7, brick8,
                                 grass1, grass2, grass3, grass4, grass5, grass6, grass7, grass8, grass9, grass10,
                                 grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
                                 grass21, grass22, grass23, grass24, grass25,
                                 tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
-                                swordUp, swordDown, swordLeft, swordRight, loseState,
+                                swordUp, swordDown, swordLeft, swordRight, loseState, youWin,
                                 fireBallUp, fireBallDown, fireBallLeft, fireBallRight,
                                 chest1, chest2, chest3, chest4, chest5, chest6,
+                                hospital, car, bed1, bed2, bed3, bed4, curtain1, curtain2, water,
+                                wall1, wall2, wall3, nenBoss,
                                 iceCream, icecream1, icecream2, icecream3, inventory;
-    public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart,
+    public static BufferedImage[] buttonStart, buttonCharacter, buttonLevel, buttonEasy, buttonHard, buttonExit, buttonRestart, buttonBag,
                                   buttonyel, buttonblu, buttonbla, buttonred, buttonwhi,
                                   redUp, redDown, redLeft, redRight,
                                   blackUp, blackDown, blackLeft, blackRight,
@@ -33,14 +35,11 @@ public class Asset {
 
     public static void init() {
         //LOAD ANH
-        SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/textures/bg_gao1.png"));
+        SpriteSheet logo = new SpriteSheet(LoadImage.loadImage("/BackGround/bg_gao1.png"));
         SpriteSheet hpmp = new SpriteSheet(LoadImage.loadImage("/textures/hp_mp.png"));
         SpriteSheet lose = new SpriteSheet(LoadImage.loadImage("/BackGround/endGame.png"));
         SpriteSheet gao = new SpriteSheet(LoadImage.loadImage("/textures/gaoRangerAll.png"));
-        SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/item2.png"));
-        SpriteSheet item1 = new SpriteSheet(LoadImage.loadImage("/textures/item1.png"));
-        SpriteSheet item2 = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
-        SpriteSheet item3 = new SpriteSheet(LoadImage.loadImage("/textures/item3.png"));
+        SpriteSheet item = new SpriteSheet(LoadImage.loadImage("/textures/items.png"));
         SpriteSheet chooseGao = new SpriteSheet(LoadImage.loadImage("/textures/chooseGao.png"));
         SpriteSheet button = new SpriteSheet(LoadImage.loadImage("/textures/buttonAll.png"));
         SpriteSheet vatThe = new SpriteSheet(LoadImage.loadImage("/textures/vatTheAll.png"));
@@ -51,6 +50,8 @@ public class Asset {
         SpriteSheet boss1= new SpriteSheet(LoadImage.loadImage("/textures/boss_xoanen.png"));
         SpriteSheet vatThe2 = new SpriteSheet(LoadImage.loadImage("/textures/vatThemap2.png"));
         SpriteSheet gateSW = new SpriteSheet(LoadImage.loadImage("/textures/gate.png"));
+        SpriteSheet winState = new SpriteSheet(LoadImage.loadImage("/BackGround/youWin.png"));
+        SpriteSheet nen = new SpriteSheet(LoadImage.loadImage("/textures/nenboss.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -114,6 +115,7 @@ public class Asset {
         buttonExit = new BufferedImage[2];
         buttonHard = new BufferedImage[2];
         buttonEasy = new BufferedImage[2];
+        buttonBag = new BufferedImage[2];
         hpBar = new BufferedImage[6];
         mpBar = new BufferedImage[6];
 
@@ -198,6 +200,8 @@ public class Asset {
         buttonRestart[1] = button.crop(255, 300, 250, 91);
         buttonExit[0] = button.crop(0, 400, 250, 91);
         buttonExit[1] = button.crop(255, 400, 250, 91);
+        buttonBag[0] = vatThe2.crop(29, 205, 161, 75);
+        buttonBag[1] = vatThe2.crop(205, 205, 161, 75);
 
         //CAT KIEM
         swordUp = monster.crop(49, 282, 45, 144);
@@ -225,6 +229,7 @@ public class Asset {
         brick5 = gach.crop(128, 32, 32, 32);
         brick6 = gach.crop(64, 64, 32, 32);
         brick7 = gach.crop(96, 64, 32, 32);
+        brick8 = vatThe2.crop(0, 120, 32, 32);
 
         grass1 = gach.crop(128, 0, 32, 32);
         grass2 = gach.crop(192, 0, 32, 32);
@@ -284,12 +289,23 @@ public class Asset {
         garden7 = vatThe.crop(672, 320, 128, 384);
         garden8 = vatThe.crop(800, 320, 224, 320);
 
-        loseState = lose.crop(0,0,800,500);
-        iceCream = item.crop(0,0,186,171);
-        icecream1 = item1.crop(0,0,186,171);
-        icecream2 = item2.crop(0,0,186,171);
-        icecream3 = item3.crop(0, 0, 186, 171);
+        hospital = vatThe2.crop(4, 306, 397, 166);
+        bed1 = vatThe2.crop(65, 48, 64, 124);
+        bed2 = vatThe2.crop(163, 48, 64, 114);
+        bed3 = vatThe2.crop(261, 48, 64 ,114);
+        bed4 = vatThe2.crop(336, 0, 128, 89);
+        car = vatThe2.crop(336, 109, 96, 53);
+        water = vatThe2.crop(406, 211, 271, 301);
+        curtain1 = vatThe2.crop(475, 0, 36, 118);
+        curtain2 = vatThe2.crop(608, 0, 92, 115);
+        wall1 = vatThe2.crop(0, 192, 800, 9);
+        wall2 = vatThe2.crop(536, 0, 9, 64);
+        wall3 = vatThe2.crop(574, 0, 9, 169);
+        fence1 = vatThe2.crop(701, 209, 15, 287);
+        nenBoss = nen.crop(0, 0, 800, 500);
+
         inventory = inv.crop(0,0,501,210);
+        youWin = winState.crop(0, 0, 800, 500);
 
         //CAT RUONG
         chest1 = vatThe2.crop(0, 0, 32, 32);

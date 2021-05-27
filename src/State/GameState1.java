@@ -22,14 +22,14 @@ public class GameState1 extends State{
         super(handler);
         State.isMap = 2;
         this.color = color;
-        world = new World(handler, "res/World/World1.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
+        world = new World(handler, "res/World/World2.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
                 handler.getWorld().getEntityManager().getPlayer().getMp());
         handler.setWorld(world);
 
         //NUT INVENTORY
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
-        uiManager.addObject(new UIImageButton(10,10, 30, 30, Asset.buttonStart, new ClickListener(){
+        uiManager.addObject(new UIImageButton(10,10, 161, 75, Asset.buttonBag, new ClickListener(){
             public void onClick(){
                 Inventory.active = !Inventory.active;
             }

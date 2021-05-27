@@ -14,7 +14,7 @@ public class GameState2 extends State{
         super(handler);
         State.isMap = 3;
         this.color = color;
-        world = new World(handler, "res/World/World1.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
+        world = new World(handler, "res/World/World3.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
                 handler.getWorld().getEntityManager().getPlayer().getMp());
         handler.setWorld(world);
     }

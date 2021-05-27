@@ -17,7 +17,7 @@ public class WinState extends State{
 
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
-        uiManager.addObject(new UIBackGround(0,0, 800, 500, Asset.loseState));
+        uiManager.addObject(new UIBackGround(0,0, 800, 500, Asset.youWin));
 
         uiManager.addObject(new UIImageButton(300,100, 200, 71, Asset.buttonRestart, new ClickListener(){
             public void onClick(){

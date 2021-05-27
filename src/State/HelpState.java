@@ -17,9 +17,9 @@ public class HelpState extends State{
 
         uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
-        uiManager.addObject(new UIBackGround(0,0, 800, 500, Asset.youWin));
+        uiManager.addObject(new UIBackGround(0,0, 800, 500, Asset.helpState));
 
-        uiManager.addObject(new UIImageButton(300,100, 200, 71, Asset.buttonRestart, new ClickListener(){
+        uiManager.addObject(new UIImageButton(600,400, 200, 71, Asset.buttonRestart, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 State.setState(new MenuState(handler));

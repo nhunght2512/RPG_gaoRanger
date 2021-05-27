@@ -14,7 +14,7 @@ public class Asset {
                                 grass11, grass12, grass13, grass14, grass15, grass16, grass17, grass18, grass19, grass20,
                                 grass21, grass22, grass23, grass24, grass25,
                                 tree1, tree2, tree3, tree4, tree5, tree6, tree7, tree8, tree9, tree10, tree11,
-                                swordUp, swordDown, swordLeft, swordRight, loseState, youWin,
+                                swordUp, swordDown, swordLeft, swordRight, loseState, youWin, helpState,
                                 fireBallUp, fireBallDown, fireBallLeft, fireBallRight,
                                 chest1, chest2, chest3, chest4, chest5, chest6,
                                 hospital, car, bed1, bed2, bed3, bed4, curtain1, curtain2, water,
@@ -49,6 +49,7 @@ public class Asset {
         SpriteSheet winState = new SpriteSheet(LoadImage.loadImage("/BackGround/youWin.png"));
         SpriteSheet nen = new SpriteSheet(LoadImage.loadImage("/textures/nenboss.png"));
         SpriteSheet character = new SpriteSheet(LoadImage.loadImage("/textures/characterAll.png"));
+        SpriteSheet help = new SpriteSheet(LoadImage.loadImage("/BackGround/help.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -306,6 +307,7 @@ public class Asset {
 
         inventory = inv.crop(0,0,501,210);
         youWin = winState.crop(0, 0, 800, 500);
+        helpState = help.crop(0, 0, 900, 600);
 
         //CAT RUONG
         chest1 = vatThe.crop(0, 726, 32, 32);

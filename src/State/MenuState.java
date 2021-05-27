@@ -26,8 +26,8 @@ public class MenuState extends State{
         uiManager.addObject(new UIImageButton(310,171, 200, 72, Asset.buttonStart, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
-                State.setState(new GameState(handler, ChooseState.color));
                 handler.getAudioPlayer().stopPlaying();
+                State.setState(new GameState(handler, ChooseState.color));
             }
         }));
 

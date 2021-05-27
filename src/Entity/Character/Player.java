@@ -40,38 +40,38 @@ public class Player extends Creature {
         //ANIMATION
         if(color == 1){
             System.out.println(color);
-            animDown = new Animation(500, Asset.redDown);
-            animUp = new Animation(500, Asset.redUp);
-            animLeft = new Animation(500, Asset.redLeft);
-            animRigth = new Animation(500, Asset.redRight);
+            animDown = new Animation(200, Asset.redDown);
+            animUp = new Animation(200, Asset.redUp);
+            animLeft = new Animation(200, Asset.redLeft);
+            animRigth = new Animation(200, Asset.redRight);
             animStay = Asset.redDown[0];
             lastKnownAnimationFrame = Asset.redDown[0];
         }else if (color == 2){
-            animDown = new Animation(500, Asset.blueDown);
-            animUp = new Animation(500, Asset.blueUp);
-            animLeft = new Animation(500, Asset.blueLeft);
-            animRigth = new Animation(500, Asset.blueRight);
+            animDown = new Animation(200, Asset.blueDown);
+            animUp = new Animation(200, Asset.blueUp);
+            animLeft = new Animation(200, Asset.blueLeft);
+            animRigth = new Animation(200, Asset.blueRight);
             animStay = Asset.blueDown[0];
             lastKnownAnimationFrame = Asset.blueDown[0];
         }else if (color == 3){
-            animDown = new Animation(500, Asset.blackDown);
-            animUp = new Animation(500, Asset.blackUp);
-            animLeft = new Animation(500, Asset.blackLeft);
-            animRigth = new Animation(500, Asset.blackRight);
+            animDown = new Animation(200, Asset.blackDown);
+            animUp = new Animation(200, Asset.blackUp);
+            animLeft = new Animation(200, Asset.blackLeft);
+            animRigth = new Animation(200, Asset.blackRight);
             animStay = Asset.blackDown[0];
             lastKnownAnimationFrame = Asset.blackDown[0];
         }else if (color == 4){
-            animDown = new Animation(500, Asset.yelDown);
-            animUp = new Animation(500, Asset.yelUp);
-            animLeft = new Animation(500, Asset.yelLeft);
-            animRigth = new Animation(500, Asset.yelRight);
+            animDown = new Animation(200, Asset.yelDown);
+            animUp = new Animation(200, Asset.yelUp);
+            animLeft = new Animation(200, Asset.yelLeft);
+            animRigth = new Animation(200, Asset.yelRight);
             animStay = Asset.yelDown[0];
             lastKnownAnimationFrame = Asset.yelDown[0];
         }else {
-            animDown = new Animation(500, Asset.whiteDown);
-            animUp = new Animation(500, Asset.whiteUp);
-            animLeft = new Animation(500, Asset.whiteLeft);
-            animRigth = new Animation(500, Asset.whiteRight);
+            animDown = new Animation(200, Asset.whiteDown);
+            animUp = new Animation(200, Asset.whiteUp);
+            animLeft = new Animation(200, Asset.whiteLeft);
+            animRigth = new Animation(200, Asset.whiteRight);
             animStay = Asset.whiteDown[0];
             lastKnownAnimationFrame = Asset.whiteDown[0];
         }

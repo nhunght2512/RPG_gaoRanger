@@ -34,6 +34,8 @@ public class GameState1 extends State{
                 Inventory.active = !Inventory.active;
             }
         }));
+
+        handler.getAudioPlayer().playMusic("map2Music.wav");
     }
 
     @Override
@@ -45,6 +47,7 @@ public class GameState1 extends State{
         }
 
         if(!handler.getEntityManager().getPlayer().isActive()){
+            handler.getAudioPlayer().stopPlaying();
             State.setState(new LoseState(handler));
         }
 
@@ -54,6 +57,7 @@ public class GameState1 extends State{
                 handler.getWorld().getEntityManager().getPlayer().getY() < 210&&
                 handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem){
             State.setState(new GameState2(handler, color));
+            handler.getAudioPlayer().stopPlaying();
         }
 
         //NUT INVENTORY

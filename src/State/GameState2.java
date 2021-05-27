@@ -18,6 +18,8 @@ public class GameState2 extends State{
         world = new World(handler, "res/World/World3.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
                 handler.getWorld().getEntityManager().getPlayer().getMp());
         handler.setWorld(world);
+
+        handler.getAudioPlayer().playMusic("map3Music.wav");
     }
 
     @Override
@@ -33,6 +35,7 @@ public class GameState2 extends State{
         }
 
         if(!handler.getEntityManager().getPlayer().isActive()){
+            handler.getAudioPlayer().stopPlaying();
             State.setState(new LoseState(handler));
         }
     }

@@ -41,8 +41,11 @@ public class AudioPlayer {
         audioClips.add(new SoundClip(clip));
     }
 
-    public static void stopPlaying() {
-
+    public void stopPlaying() {
+        List.copyOf(audioClips).forEach(audioClip -> {
+                audioClip.cleanUp();
+                audioClips.remove(audioClip);
+        });
     }
 
     private static Clip getClip(String fileName) {

@@ -22,6 +22,7 @@ public class WinState extends State{
         uiManager.addObject(new UIImageButton(300,100, 200, 71, Asset.buttonRestart, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
+                handler.getAudioPlayer().stopPlaying();
                 State.setState(new MenuState(handler));
             }
         }));
@@ -33,7 +34,7 @@ public class WinState extends State{
             }
         }));
 
-        handler.getAudioPlayer().playSound("gameOver.wav");
+        handler.getAudioPlayer().playSound("WinSound.wav");
     }
 
     @Override

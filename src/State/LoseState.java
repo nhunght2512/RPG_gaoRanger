@@ -22,7 +22,6 @@ public class LoseState extends State{
         uiManager.addObject(new UIImageButton(300,100, 200, 71, Asset.buttonRestart, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
-                handler.getAudioPlayer().playMusic("gaoMusic.wav");
                 State.setState(new MenuState(handler));
             }
         }));

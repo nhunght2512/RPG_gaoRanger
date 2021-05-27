@@ -56,8 +56,8 @@ public class GameState1 extends State{
                 handler.getWorld().getEntityManager().getPlayer().getY() > 150 &&
                 handler.getWorld().getEntityManager().getPlayer().getY() < 210&&
                 handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem){
-            State.setState(new GameState2(handler, color));
             handler.getAudioPlayer().stopPlaying();
+            State.setState(new GameState2(handler, color));
         }
 
         //NUT INVENTORY

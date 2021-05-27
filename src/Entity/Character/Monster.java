@@ -45,6 +45,7 @@ public class Monster extends Creature {
         this.width = width;
         this.height = height;
         this.health = health;
+        this.type = type;
 
         //CHON LOAI QUAI VAT
         if(type == 1){
@@ -89,8 +90,6 @@ public class Monster extends Creature {
             bounds.height = 60;
             this.health = 30;
         }
-
-
     }
 
     @Override
@@ -175,15 +174,21 @@ public class Monster extends Creature {
     }
 
     public void getHpBar(){
-        if(health >8){
+        int h;
+        if (this.type == 4){
+            h = 30;
+        } else{
+            h = 10;
+        }
+        if(health > (h / 5) * 4){
             hp = Asset.hpBar[0];
-        }else if(health>6){
+        }else if(health>(h / 5) * 3){
             hp = Asset.hpBar[1];
-        }else if(health>4){
+        }else if(health>(h / 5) * 2){
             hp = Asset.hpBar[2];
-        }else if(health >2){
+        }else if(health >(h / 5) * 1){
             hp = Asset.hpBar[3];
-        }else if(health >0){
+        }else if(health >(h / 5) * 0){
             hp = Asset.hpBar[5];
         }else{
             hp = Asset.hpBar[4];

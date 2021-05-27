@@ -37,7 +37,7 @@ public abstract class Creature extends Entity {
     }
 
     //DAM BAO NHAN VAT KHONG DI QUA DUOC TILES SOLID
-    public void moveX(){
+    private void moveX(){
         if(xMove > 0 ){//MOVING RIGHT
             int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILE_WIDTH;
             if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT)
@@ -58,7 +58,7 @@ public abstract class Creature extends Entity {
     }
 
     //DAM BAO NHAN VAT KHONG DI QUA DUOC TILES SOLID
-    public void moveY(){
+    private void moveY(){
         if(yMove < 0){//UP
             int ty = (int) (y + yMove + bounds.y) / Tile.TILE_HEIGHT;
             if(!collisionWithTile((int) (x + bounds.x) / Tile.TILE_WIDTH, ty)

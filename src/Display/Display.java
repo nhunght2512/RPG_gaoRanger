@@ -1,11 +1,7 @@
 package Display;
 
-import graphics.Asset;
-import graphics.SpriteSheet;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class Display {
     private JFrame frame;

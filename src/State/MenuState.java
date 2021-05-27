@@ -10,9 +10,9 @@ import graphics.Asset;
 import java.awt.*;
 
 public class MenuState extends State{
-    public UIManager uiManager;
+    private UIManager uiManager;
 
-    public State chooseState;
+    private State chooseState;
 
     public MenuState(Handler handler){
         super(handler);
@@ -46,6 +46,14 @@ public class MenuState extends State{
                 handler.getMouseManager().setUiManager(null);
                 chooseState = new ChooseState(handler);
                 State.setState(chooseState);
+            }
+        }));
+
+        //HELPBUTTON
+        uiManager.addObject(new UIImageButton(310,440, 200, 72, Asset.buttonCharacter, new ClickListener(){
+            public void onClick(){
+                handler.getMouseManager().setUiManager(null);
+                State.setState(new HelpState(handler));
             }
         }));
     }

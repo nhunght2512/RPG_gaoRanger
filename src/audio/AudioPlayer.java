@@ -14,8 +14,6 @@ public class AudioPlayer {
 
     public List<AudioClip> audioClips;
 
-    public Clip clip;
-
     public AudioPlayer(Handler handler) {
         this.handler = handler;
         audioClips = new ArrayList<>();

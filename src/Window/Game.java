@@ -26,8 +26,7 @@ public class Game implements Runnable{
     private Graphics g;
 
     //STATE
-    public State gameState;
-    public State menuState;
+    private State menuState;
 
     //INPUT
     private KeyManager keyManager;
@@ -66,7 +65,6 @@ public class Game implements Runnable{
         audioPlayer = new AudioPlayer(handler);
         handler.getAudioPlayer().playMusic("GaoMusic.wav");
 
-        //gameState = new GameState(handler);
         menuState = new MenuState(handler);
         State.setState(menuState);
     }
@@ -86,8 +84,10 @@ public class Game implements Runnable{
             return;
         }
         g = bs.getDrawGraphics();
+
         //CLEAR THE SCREEN
         g.clearRect(0,0,width,height);
+
         //DRAW
         if(State.getState() != null){
             State.getState().render(g);

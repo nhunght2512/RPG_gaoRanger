@@ -32,7 +32,7 @@ public class MenuState extends State{
         }));
 
         //LEVEL BUTTON
-        uiManager.addObject(new UIImageButton(310,261, 200, 72, Asset.buttonLevel, new ClickListener(){
+        uiManager.addObject(new UIImageButton(210,261, 200, 72, Asset.buttonLevel, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 LevelState levelState = new LevelState(handler);
@@ -41,7 +41,7 @@ public class MenuState extends State{
         }));
 
         //CHOOSE BUTTON
-        uiManager.addObject(new UIImageButton(310,350, 200, 72, Asset.buttonCharacter, new ClickListener(){
+        uiManager.addObject(new UIImageButton(410,261, 200, 72, Asset.buttonCharacter, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 chooseState = new ChooseState(handler);
@@ -50,7 +50,7 @@ public class MenuState extends State{
         }));
 
         //HELPBUTTON
-        uiManager.addObject(new UIImageButton(310,440, 200, 72, Asset.buttonCharacter, new ClickListener(){
+        uiManager.addObject(new UIImageButton(310,350, 200, 72, Asset.buttonHelp, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 State.setState(new HelpState(handler));

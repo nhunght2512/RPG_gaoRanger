@@ -18,7 +18,7 @@ public class ChooseState extends State{
         handler.getMouseManager().setUiManager(uiManager);
 
         // RED BUTTON
-        uiManager.addObject(new UIImageButton(0,0, 160, 500, Asset.buttonred, new ClickListener(){
+        uiManager.addObject(new UIImageButton(0,0, 160, 500, Asset.buttonRed, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 1;
@@ -27,7 +27,7 @@ public class ChooseState extends State{
         }));
 
         //BLUE BUTTON
-        uiManager.addObject(new UIImageButton(160,0, 160, 500, Asset.buttonblu, new ClickListener(){
+        uiManager.addObject(new UIImageButton(160,0, 160, 500, Asset.buttonBlu, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 2;
@@ -36,7 +36,7 @@ public class ChooseState extends State{
         }));
 
         // BLACK BUTTON
-        uiManager.addObject(new UIImageButton(320,0, 160, 500, Asset.buttonbla, new ClickListener(){
+        uiManager.addObject(new UIImageButton(320,0, 160, 500, Asset.buttonBla, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 3;
@@ -45,7 +45,7 @@ public class ChooseState extends State{
         }));
 
         //YELLOW BUTTON
-        uiManager.addObject(new UIImageButton(480,0, 160, 500, Asset.buttonyel, new ClickListener(){
+        uiManager.addObject(new UIImageButton(480,0, 160, 500, Asset.buttonYel, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 4;
@@ -54,7 +54,7 @@ public class ChooseState extends State{
         }));
 
         //WHITE BUTTON
-        uiManager.addObject(new UIImageButton(640,0, 160, 500, Asset.buttonwhi, new ClickListener(){
+        uiManager.addObject(new UIImageButton(640,0, 160, 500, Asset.buttonWhi, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
                 color = 5;

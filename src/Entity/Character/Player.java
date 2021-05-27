@@ -121,7 +121,7 @@ public class Player extends Creature {
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null);
-        g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset() + 12), (int)(y - handler.getGameCamera().getyOffset()) - 10, 40, 8, null);
+        g.drawImage(hp, (int)(x - handler.getGameCamera().getxOffset() + 14), (int)(y - handler.getGameCamera().getyOffset()) - 8, 40, 8, null);
         g.drawImage(MP, (int)(x - handler.getGameCamera().getxOffset() + 10 ), (int)(y - handler.getGameCamera().getyOffset()) - 15, 40, 8, null);
         g.setColor(Color.CYAN);
 //        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),

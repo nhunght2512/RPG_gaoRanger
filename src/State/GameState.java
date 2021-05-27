@@ -44,8 +44,8 @@ public class GameState extends State{
         }
 
         if(handler.getWorld().getEntityManager().getPlayer().getX() > 1820 &&
-                handler.getWorld().getEntityManager().getPlayer().getY() > 988 /*&&
-                handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem*/){
+                handler.getWorld().getEntityManager().getPlayer().getY() > 988 &&
+                handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItem().size() == mustHaveItem){
             State.setState(new GameState1(handler, color));
         }
 

@@ -27,6 +27,7 @@ public class Monster extends Creature {
 
     private int width;
     private int height;
+    private int type;
 
     //RANDOM HUONG DI CUA NHAN VAT
     private Random random = new Random();
@@ -38,11 +39,12 @@ public class Monster extends Creature {
 
     public final int r=400;
 
-    public Monster(Handler handler, float x, float y, int width, int height, int type, Item item) {
+    public Monster(Handler handler, float x, float y, int width, int height, int type, int health, Item item) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
         this.item = item;
         this.width = width;
         this.height = height;
+        this.health = health;
 
         //CHON LOAI QUAI VAT
         if(type == 1){
@@ -85,6 +87,7 @@ public class Monster extends Creature {
             bounds.y = 5;
             bounds.width = 35;
             bounds.height = 60;
+            this.health = 30;
         }
 
 
@@ -210,5 +213,9 @@ public class Monster extends Creature {
         }else {
             return animStay;
         }
+    }
+
+    public int getType() {
+        return type;
     }
 }

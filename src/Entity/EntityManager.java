@@ -1,5 +1,6 @@
 package Entity;
 
+import Entity.Character.Monster;
 import Entity.Character.Player;
 import Entity.Weapon.Sword1;
 import Entity.Weapon.Sword2;
@@ -14,6 +15,7 @@ public class EntityManager {
     private Handler handler;
     private Player player;
     private ArrayList<Entity> entities;
+    public static boolean winFlag = false;
 
     //RENDER ORDER
     private Comparator<Entity> renderSorter = new Comparator<Entity>() {
@@ -42,6 +44,11 @@ public class EntityManager {
             //KIEM TRA XEM NHAN VAT CHET CHUA
             if(! e.isActive()){
                 iter.remove();
+            }
+            if(! e.isActive() && e instanceof Monster){
+                if(((Monster) e).getType() == 4){
+                    winFlag = true;
+                }
             }
 
             //NEU LA KIEM THI XOA SAU 1S
@@ -82,16 +89,7 @@ public class EntityManager {
         return player;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
     public ArrayList<Entity> getEntities() {
         return entities;
     }
-
-    public void setEntities(ArrayList<Entity> entities) {
-        this.entities = entities;
-    }
-
 }

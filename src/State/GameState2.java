@@ -1,5 +1,6 @@
 package State;
 
+import Entity.EntityManager;
 import Handler.Handler;
 import World.World;
 
@@ -23,7 +24,7 @@ public class GameState2 extends State{
     public void tick() {
         world.tick();
 
-        if(World.countMonster == 0){
+        if(EntityManager.winFlag == true){
             State.setState(new WinState(handler));
         }
 

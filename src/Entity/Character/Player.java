@@ -76,7 +76,7 @@ public class Player extends Creature {
             lastKnownAnimationFrame = Asset.whiteDown[0];
         }
 
-        inventory = new Inventory(handler);
+        //inventory = new Inventory(handler);
     }
 
     @Override

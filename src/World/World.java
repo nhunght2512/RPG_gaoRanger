@@ -9,6 +9,7 @@ import Entity.Weapon.Sword1;
 import Entity.Weapon.Sword2;
 import Entity.Character.Monster;
 import Handler.Handler;
+import Inventory.Inventory;
 import Tiles.Items.Item;
 import Tiles.Items.ItemManager;
 import Tiles.Tile;
@@ -44,10 +45,15 @@ public class World {
     //CREATE ITEMS
     private ItemManager itemManager;
 
-    public World(Handler handler, String path, int color, int health, int mp){
+    //CREATE INVENTORY
+    private Inventory inventory;
+
+    public World(Handler handler, String path, int color, int health, int mp, Inventory inventory){
         this.handler = handler;
         entityManager = new EntityManager(handler, new Player(handler, 500, 500, color, health, mp));
         itemManager = new ItemManager(handler);
+        this.inventory = inventory;
+        entityManager.getPlayer().setInventory(inventory);
 
         //CREATE ENTITIES
         if(State.isMap == 1){

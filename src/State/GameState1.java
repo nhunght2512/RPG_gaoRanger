@@ -23,7 +23,8 @@ public class GameState1 extends State{
         State.isMap = 2;
         this.color = color;
         world = new World(handler, "res/World/World2.txt", color, handler.getWorld().getEntityManager().getPlayer().getHealth(),
-                handler.getWorld().getEntityManager().getPlayer().getMp());
+                handler.getWorld().getEntityManager().getPlayer().getMp(),
+                handler.getWorld().getEntityManager().getPlayer().getInventory());
         handler.setWorld(world);
 
         //NUT INVENTORY

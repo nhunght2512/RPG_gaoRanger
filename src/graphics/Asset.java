@@ -50,6 +50,7 @@ public class Asset {
         SpriteSheet nen = new SpriteSheet(LoadImage.loadImage("/textures/nenboss.png"));
         SpriteSheet character = new SpriteSheet(LoadImage.loadImage("/textures/characterAll.png"));
         SpriteSheet help = new SpriteSheet(LoadImage.loadImage("/BackGround/help.png"));
+        SpriteSheet blood= new SpriteSheet(LoadImage.loadImage("/textures/blood.png"));
 
         redDown = new BufferedImage[3];
         redUp = new BufferedImage[3];
@@ -318,7 +319,7 @@ public class Asset {
         chest6 = vatThe.crop(245, 726, 32, 32);
 
         loseState = lose.crop(0, 0, 800, 500);
-        iceCream = vatThe.crop(820, 739, 111, 113);
+        iceCream = blood.crop(0, 0, 120, 88);
     }
 
     public static void cut(int width, int height, int colx, int coly, int x, int y, BufferedImage[] bi, SpriteSheet spr) {

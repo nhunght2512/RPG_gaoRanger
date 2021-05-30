@@ -28,7 +28,6 @@ public class World {
     private int spawnY;
     private int[][] tiles;
     private int size;
-    public static int countMonster;
 
     //ATTACK TIMER
     private long lastAttackTimer;
@@ -153,7 +152,6 @@ public class World {
             entityManager.addEntity(new Gate(handler, 1800, 1020, 120, 120));
 
             //CREATE MONSTER
-            countMonster = 13;
             entityManager.addEntity(new Monster(handler, 700, 300, 48, 48, 1, 10, Item.iceCreamm));
             entityManager.addEntity(new Monster(handler, 260, 400, 48, 48, 3, 10, Item.chest3));
             entityManager.addEntity(new Monster(handler, 800, 400, 48, 48, 1, 10, Item.iceCreamm));
@@ -363,15 +361,7 @@ public class World {
         return entityManager;
     }
 
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
     public boolean isShoot() {
         return isShoot;
-    }
-
-    public void setShoot(boolean shoot) {
-        isShoot = shoot;
     }
 }

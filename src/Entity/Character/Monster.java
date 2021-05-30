@@ -3,8 +3,6 @@ package Entity.Character;
 import Entity.Entity;
 import Handler.Handler;
 import Tiles.Items.Item;
-import Tiles.Tile;
-import World.World;
 import graphics.Animation;
 import graphics.Asset;
 
@@ -199,8 +197,6 @@ public class Monster extends Creature {
     @Override
     public void die() {
         //KHI QUAI VAT CHET THI HIEN VAT PHAM
-        World.countMonster = World.countMonster - 1;
-        System.out.println("countMonster" + World.countMonster);
         handler.getWorld().getItemManager().addItem(item.createNewItem((int) x, (int) y));
 
     }

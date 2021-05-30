@@ -1,7 +1,5 @@
 package State;
 
-import Entity.Character.Creature;
-import Entity.Character.Player;
 import Handler.Handler;
 import UI.ClickListener;
 import UI.UIImageButton;
@@ -32,7 +30,7 @@ public class LevelState extends State{
         uiManager.addObject(new UIImageButton(300,250, 250, 91, Asset.buttonHard, new ClickListener(){
             public void onClick(){
                 handler.getMouseManager().setUiManager(null);
-                speed = 3;
+                speed = 2;
                 State.setState(new MenuState(handler));
             }
         }));

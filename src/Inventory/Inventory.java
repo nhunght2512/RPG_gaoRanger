@@ -23,9 +23,6 @@ public class Inventory {
         if(!active){
             return;
         }
-        for(Item i : inventoryItem){
-            System.out.println(i.getName() + " " + i.getCount());
-        }
     }
 
     //INVENTORY METHODS

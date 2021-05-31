@@ -28,6 +28,7 @@ public class GameState2 extends State{
         world.tick();
 
         if(EntityManager.winFlag == true){
+            handler.getAudioPlayer().stopPlaying();
             State.setState(new WinState(handler));
         }
 

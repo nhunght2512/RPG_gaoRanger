@@ -50,25 +50,25 @@ public class Sword2 extends Sword {
             yMove = -speed;
             xMove = 0;
             img = Asset.fireBallUp;
-            handler.getAudioPlayer().playSound("throwknife.wav");
+            handler.getAudioPlayer().playSound("fireBall.wav");
         }
         if(handler.getKeyManager().aDown && xMove == 0 && yMove == 0){
             yMove = speed;
             xMove = 0;
             img = Asset.fireBallDown;
-            handler.getAudioPlayer().playSound("throwknife.wav");
+            handler.getAudioPlayer().playSound("fireBall.wav");
         }
         if(handler.getKeyManager().aLeft && xMove == 0 && yMove == 0){
             xMove = -speed;
             yMove = 0;
             img = Asset.fireBallLeft;
-            handler.getAudioPlayer().playSound("throwknife.wav");
+            handler.getAudioPlayer().playSound("fireBall.wav");
         }
         if(handler.getKeyManager().aRight && xMove == 0 && yMove == 0){
             xMove = speed;
             yMove = 0;
             img = Asset.fireBallRight;
-            handler.getAudioPlayer().playSound("throwknife.wav");
+            handler.getAudioPlayer().playSound("fireBall.wav");
         }
     }
 }

@@ -15,7 +15,7 @@ public class Gate extends StaticEntity{
         this.width = width;
         this.height = height;
 
-        gateSwitchh = new Animation(500, Asset.gateSwitch);
+        gateSwitchh = new Animation(150, Asset.gateSwitch);
     }
 
     @Override

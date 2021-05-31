@@ -149,7 +149,7 @@ public class World {
             entityManager.addEntity(new ObjectRPG(handler, 1856, 160, Asset.tree11, 32, 64, 0, 0, 0, 0));
 
             //CONG DICH CHUYEN
-            entityManager.addEntity(new Gate(handler, 1800, 1020, 120, 120));
+            entityManager.addEntity(new Gate(handler, 1780, 950, 120, 120));
 
             //CREATE MONSTER
             entityManager.addEntity(new Monster(handler, 700, 300, 48, 48, 1, 10, Item.iceCreamm));

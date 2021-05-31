@@ -45,7 +45,7 @@ public class Asset {
         SpriteSheet inv = new SpriteSheet(LoadImage.loadImage("/textures/Inventory.png"));
         SpriteSheet number = new SpriteSheet(LoadImage.loadImage("/textures/number.png"));
         SpriteSheet boss1= new SpriteSheet(LoadImage.loadImage("/textures/boss_xoanen.png"));
-        SpriteSheet gateSW = new SpriteSheet(LoadImage.loadImage("/textures/gate.png"));
+        SpriteSheet gateSW = new SpriteSheet(LoadImage.loadImage("/textures/gate2.png"));
         SpriteSheet winState = new SpriteSheet(LoadImage.loadImage("/BackGround/youWin.png"));
         SpriteSheet nen = new SpriteSheet(LoadImage.loadImage("/textures/nenboss.png"));
         SpriteSheet character = new SpriteSheet(LoadImage.loadImage("/textures/characterAll.png"));
@@ -121,7 +121,7 @@ public class Asset {
 
         num = new BufferedImage[10];
 
-        gateSwitch = new BufferedImage[6];
+        gateSwitch = new BufferedImage[4];
 
         //CAT GAO
 
@@ -183,7 +183,7 @@ public class Asset {
         cut(15, 18, 0, 0, 10, 1, num, number);
 
         //CAT GATE
-        cut(120,120,0,0,6,1, gateSwitch, gateSW);
+        cut(146,146,0,0,4,1, gateSwitch, gateSW);
 
         //CAT CHON NUT
         buttonStart[0] = button.crop(0, 0, 250, 91);
